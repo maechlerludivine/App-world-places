@@ -1,0 +1,41 @@
+.home {
+	font-family: 'Raleway', sans-serif;
+	background: url('../assets/img/background.png') no-repeat;
+	background-size: contain;
+
+/* 	h1 {
+		font-size: 4em;
+		color:#fff;
+		transform: translateY(4em);
+		margin-left:20px;
+		font-weight: 500;
+	}
+
+	span {
+		font-size: 4em;
+		color:#fff;
+		font-weight: 500;
+		transform: translateY(4em);
+		margin-left:95px;
+		display: block;
+	}*/
+
+	h2 {
+		color:#fff;
+		text-align: center;
+	}
+
+	.register-btn, .login-btn {
+		transform:translateY(14em);
+	}
+
+	.button-md {
+		background-color: transparent;
+		border:1px solid #fff;
+		color:#fff;
+
+		&:hover {
+			background: none;
+		}
+	}
+}
