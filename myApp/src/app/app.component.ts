@@ -8,44 +8,40 @@ import { AngularFireModule, AngularFire, AuthProviders, AuthMethods } from 'angu
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
+export interface PageInterface {
+	title: string;
+	component: any;
+}
 
 @Component({
-  selector:'app-root',
-  templateUrl: './app.html'
+	selector:'app-root',
+	templateUrl: './app.html'
 })
 export class MyApp {
 
-  page: PageEnum;
-  type = PageEnum;
-  rootPage: any;
+	appPages: PageInterface[] = [
+		{ title: 'Login', component: LoginPage },
+		{ title: 'Register', component: RegisterPage,}
+	];
 
-  //todo service qui récupère si je suis authentifié
+	constructor(public af: AngularFire) {
+		this.af.auth.subscribe(auth => console.log(auth));
+	}
 
-  constructor(public af: AngularFire) {
-    this.af.auth.subscribe(auth => console.log(auth));
-    this.page = PageEnum.signin;
-    this.rootPage = HomePage;
-  }
-
-  login() {
-    this.af.auth.login({
-      email: 'email@example.com',
-      password: 'password',
-    });
-  }
+	login() {
+		this.af.auth.login({
+			email: 'email@example.com',
+			password: 'password',
+		});
+	}
  
 /*  constructor(platform: Platform) {
-    platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      StatusBar.styleDefault();
-      Splashscreen.hide();
-    });
-  }*/
+		platform.ready().then(() => {
+			// Okay, so the platform is ready and our plugins are available.
+			// Here you can do any higher level native things you might need.
+			StatusBar.styleDefault();
+			Splashscreen.hide();
+		});
+	}*/
 }
 
-enum PageEnum {
-  logged = 0,
-  signin = 1,
-  signup = 2
-}

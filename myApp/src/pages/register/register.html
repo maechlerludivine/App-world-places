@@ -5,18 +5,10 @@
 	  </ion-navbar>
 	</ion-header>
 	    
-	    <form (ngSubmit)="register()">
+	    <form (ngSubmit)="register()" #registerForm="ngForm" novalidate>
 	      <ion-row>
 	        <ion-col>
 	          <ion-list insest>
-	            <ion-item>
-	              <ion-input type="text" placeholder="Nom" name="lastname" [(ngModel)]="registerCredentials.lastname" required></ion-input>
-	            </ion-item>
-
-	            <ion-item>
-	              <ion-input type="text" placeholder="Prénom" name="firstname" [(ngModel)]="registerCredentials.firstname" required></ion-input>
-	            </ion-item>
-
 	            <ion-item>
 	              <ion-input type="text" placeholder="Email" name="email" [(ngModel)]="registerCredentials.email" required></ion-input>
 	            </ion-item>
@@ -32,6 +24,8 @@
 	      <ion-row>
 	        <ion-col class="signup-col">
 	          <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Register</button>
+	          <button ion-button class="register-btn" block clear (click)="login()">Se connecter</button>
+
 	        </ion-col>
 	      </ion-row>
 	    </form>

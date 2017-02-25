@@ -4,8 +4,8 @@ import { MyApp } from './app.component';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
-import { Register } from '../pages/register/register';
-import { Login } from '../pages/login/login';
+import { RegisterPage } from '../pages/register/register';
+import { LoginPage } from '../pages/login/login';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
@@ -32,8 +32,8 @@ const myFirebaseAuthConfig = {
     AboutPage,
     ContactPage,
     HomePage,
-    Login,
-    Register
+    LoginPage,
+    RegisterPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -46,7 +46,8 @@ const myFirebaseAuthConfig = {
     AboutPage,
     ContactPage,
     HomePage,
-    Login
+    LoginPage,
+    RegisterPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, AuthService]
 })
