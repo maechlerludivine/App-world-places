@@ -1,8 +1,12 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, LoadingController, Loading } from 'ionic-angular';
-import { AuthService } from '../../app/services/authService';
-import { Register } from '../pages/register/register';
-import { Home } from '../pages/home/home';
+import { NavController, AlertController, LoadingController, Loading, NavParams } from 'ionic-angular';
+import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { RegisterPage } from '../register/register';
+import { ResetPasswordPage } from '../reset-password/reset-password';
+import { HomePage } from '../home/home';
+import { UserService, AuthService } from '../../app/services';
+import { AngularFireModule, AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
+
 
 @Component({
   selector: 'app-login',
@@ -10,10 +14,28 @@ import { Home } from '../pages/home/home';
 })
 export class LoginPage {
 
- 	loginCredentials = {email: '', password: ''};
+	loginCredentials = {email: '', password: ''};
+	email:AbstractControl;
+	password: AbstractControl;
+	error:any;
+	submitted = false;
 
-  constructor(public navCtrl: NavController) {
+  constructor(
+	  private navCtrl: NavController,
+	  private authService: AuthService,
+	  private userService: UserService
+	  ) { }
 
-  }
-
+  	login() {
+		this.authService.login(this.loginCredentials).then(res => {
+			this.userService.getProfil().subscribe(data => {
+			})
+		})
+	}
+	ResetPasswordPage() {
+		this.navCtrl.push(ResetPasswordPage);
+	}
+	// logout() {
+	// 	this.af.auth.logout();
+	// }
 }

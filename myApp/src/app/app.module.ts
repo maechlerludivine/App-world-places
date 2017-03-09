@@ -1,29 +1,30 @@
 import { NgModule, ErrorHandler } from '@angular/core';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { IonicApp, IonicModule, IonicErrorHandler, NavController } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { RegisterPage } from '../pages/register/register';
 import { LoginPage } from '../pages/login/login';
+import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
-import { AuthService } from './services/authService';
+import { AuthService, UserService } from './services';
 import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 
 const myFirebaseConfig = {
-  apiKey: 'AIzaSyA2bxqatH4M6QW4MMF9QTjqO8HOr4eTV5I',
-  authDomain: 'myapp-f3027.firebaseapp.com',
-  databaseURL: 'https://myapp-f3027.firebaseio.com/',
-  storageBucket: 'gs://myapp-f3027.appspot.com',
-  messagingSenderId: 'AAAAcDvQKFM:APA91bELV1LJdkoQ_-76AUyE_I7xdns81s3sYy4YIA88Yw3lzCJe446ecXyHrGegmvsB0S_pTI8qcUX08Zw_roJzgEv5S3RUYQ80ksybHCG7pZotgn6epxJpdtFfyVpzh9viVogXk8HJ'
+    apiKey: "AIzaSyATE_DqMHFKC-u-uV1INPrEcHVW6y8k2Aw",
+    authDomain: "test-4cff0.firebaseapp.com",
+    databaseURL: "https://test-4cff0.firebaseio.com",
+    storageBucket: "test-4cff0.appspot.com",
+    messagingSenderId: "476274743436"
 };
 
 const myFirebaseAuthConfig = {
-  provider: AuthProviders.Google,
-  method: AuthMethods.Redirect
+  provider: AuthProviders.Password,
+  method: AuthMethods.Password
 };
 
 @NgModule({
@@ -33,7 +34,8 @@ const myFirebaseAuthConfig = {
     ContactPage,
     HomePage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    ResetPasswordPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -47,8 +49,9 @@ const myFirebaseAuthConfig = {
     ContactPage,
     HomePage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    ResetPasswordPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, AuthService]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, AuthService, UserService]
 })
 export class AppModule {}

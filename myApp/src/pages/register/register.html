@@ -1,32 +1,21 @@
 <ion-content class="register-content" padding>
 	<ion-header>
-	  <ion-navbar color="dark">
-	    <ion-title>S'inscrire</ion-title>
+	  <ion-navbar>
 	  </ion-navbar>
+	  <h2>World Places</h2>
 	</ion-header>
 	    
-	    <form (ngSubmit)="register()" #registerForm="ngForm" novalidate>
-	      <ion-row>
-	        <ion-col>
-	          <ion-list insest>
-	            <ion-item>
-	              <ion-input type="text" placeholder="Email" name="email" [(ngModel)]="registerCredentials.email" required></ion-input>
-	            </ion-item>
-	            
-	            <ion-item>
-	              <ion-input type="password" placeholder="Mot de passe" name="password" [(ngModel)]="registerCredentials.password" required></ion-input>
-	            </ion-item>
-	            
-	          </ion-list>
-	        </ion-col>
-	      </ion-row>
-	      
-	      <ion-row>
-	        <ion-col class="signup-col">
-	          <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Register</button>
-	          <button ion-button class="register-btn" block clear (click)="login()">Se connecter</button>
+	    <form (ngSubmit)="register()" #registerForm="ngForm" novalidate class="form">
 
-	        </ion-col>
-	      </ion-row>
+				<ion-input type="text" placeholder="Nom" name="lastname" [(ngModel)]="form.lastname" required></ion-input>
+				
+				<ion-input type="text" placeholder="Prénom" name="firstname" [(ngModel)]="form.firstname" required></ion-input>
+
+				<ion-input type="text" placeholder="Email" name="email" [(ngModel)]="form.email" required></ion-input>
+
+				<ion-input type="password" placeholder="Mot de passe" name="password" [(ngModel)]="form.password" required></ion-input>
+
+				<button ion-button class="submit-btn" full [disabled]="!registerForm.valid">Valider</button>
+				<button ion-button class="register-btn" block clear (click)="LoginPage()">Se connecter</button>
 	    </form>
 </ion-content>

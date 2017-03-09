@@ -1,0 +1,41 @@
+.register-content {
+	font-family: 'Raleway', sans-serif;
+	background: url('../assets/img/background.png') no-repeat;
+	background-size: contain;
+
+	.form { 
+	 padding-top: 10rem;
+
+	 	.input {
+	 		border-bottom: 1px solid #fff;
+	 	}
+
+	 	.text-input-md {
+	 		color:#fff;
+
+	 		&::-webkit-input-placeholder {
+	 			color:rgba(255, 255, 255, 0.5);
+	 		}
+	 	}
+
+		.submit-btn {
+			background-color:transparent;
+			color:#fff;
+			border: 1px solid #fff;
+			margin-top:50px;
+		}
+		.register-btn {
+			background-color:#fff;
+			color:#444;
+
+			&:hover {
+				background-color:none;
+			}
+		}	 
+	}
+
+	h2 {
+		color:#fff;
+		text-align: center;
+	}
+}

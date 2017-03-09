@@ -1,19 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild} from '@angular/core';
 
-import { NavController} from 'ionic-angular';
-import { Geolocation } from 'ionic-native';
-import { Register } from '../pages/register/register';
-import { Login } from '../pages/login/login';
+import { NavController } from 'ionic-angular';
+import { RegisterPage } from '../register/register';
+import { LoginPage } from '../login/login';
+import { ResetPasswordPage } from '../reset-password/reset-password';
 
 declare var google;
 
 @Component({
   selector: 'app-home',
-  templateUrl: 'home.html'
+  templateUrl: 'home.html',
+
 })
 export class HomePage{
 
-	constructor() {
+	constructor(public navCtrl: NavController) {}
 
+		RegisterPage() {
+			this.navCtrl.push(RegisterPage);
+		}
+
+		LoginPage() {
+			this.navCtrl.push(LoginPage);
+		}
 	}
-}
