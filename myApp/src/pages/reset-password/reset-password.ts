@@ -23,7 +23,7 @@ export class ResetPasswordPage {
  
   submit(): void { 
     if(this.resetPasswordForm.valid) {
-        this.authService.resetPassword(this.credentials.email).subscribe(registerData => {
+        this.authService.resetPassword(this.email.value).subscribe(registerData => {
             alert('Password recovery link is sent.');
             this.navCtrl.setRoot(HomePage);
         }, registerError => {
