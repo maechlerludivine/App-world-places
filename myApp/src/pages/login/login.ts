@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/fo
 import { RegisterPage } from '../register/register';
 import { ResetPasswordPage } from '../reset-password/reset-password';
 import { HomePage } from '../home/home';
+import { PlacesPage } from '../places/places';
 import { UserService, AuthService } from '../../app/services';
 import { AngularFireModule, AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
 
@@ -35,6 +36,14 @@ export class LoginPage {
 	ResetPasswordPage() {
 		this.navCtrl.push(ResetPasswordPage);
 	}
+	RegisterPage() {
+		this.navCtrl.push(RegisterPage);
+	}
+
+	PlacesPage() {
+		this.navCtrl.setRoot(PlacesPage);
+	}
+
 	// logout() {
 	// 	this.af.auth.logout();
 	// }

@@ -3,6 +3,14 @@
 	background: url('../assets/img/background.png') no-repeat;
 	background-size: contain;
 
+	.toolbar-background-md {
+		background-color: transparent;
+
+		.button-inner {
+			color:#fff;
+		}
+	}
+
 	.form { 
 	 padding-top: 10rem;
 

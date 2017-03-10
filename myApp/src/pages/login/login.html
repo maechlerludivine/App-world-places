@@ -10,9 +10,9 @@
 
           <ion-input class="input" type="password" placeholder="Mot de passe" name="password" [(ngModel)]="loginCredentials.password" required></ion-input>
 
-          <button ion-button type="submit" block (click)="ResetPasswordPage()">Reset password</button>
+          <button ion-button type="button" block (click)="ResetPasswordPage()">Reset password</button>
 
-      <button ion-button class="submit-btn" full type="submit" [disabled]="!loginForm.form.valid">Valider</button>
-      <button ion-button class="register-btn" type="submit" block clear (click)="RegisterPage()">S'inscrire</button>
+      <button ion-button class="submit-btn" full type="submit" [disabled]="!loginForm.form.valid" (click)="PlacesPage()">Valider</button>
+      <button ion-button class="register-btn" type="button" block clear (click)="RegisterPage()">S'inscrire</button>
 	</form>
 </ion-content>

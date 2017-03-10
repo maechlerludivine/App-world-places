@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AuthService, UserService } from '../../app/services';
-import { LoginPage } from '../pages/login/login';
-import { HomePage } from '../pages/home/home';
+import { LoginPage } from '../login/login';
+import { HomePage } from '../home/home';
 import { NgForm } from '@angular/forms';
 
 import { AngularFireModule, AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
@@ -41,7 +41,7 @@ export class RegisterPage {
 		this.authService.create(credentials).then((res => {
 			let userProfile: UserProfile = {
 				firstname: this.form.firstname,
-				lastname: 'test' //this.registerForm.lastname
+				lastname: 'test'
 			}
 			
 			this.userService.updateMyProfile(userProfile).then(res => {
@@ -49,6 +49,10 @@ export class RegisterPage {
 			})
 		}))
 	}
+
+	LoginPage() {
+		this.navCtrl.push(LoginPage);
+	}	
 }
 
 class RegisterForm {

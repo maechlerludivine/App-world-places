@@ -5,6 +5,7 @@ import { AngularFireModule, AuthProviders, AuthMethods, AngularFire, FirebaseAut
 import 'rxjs/add/operator/map';
 
 import { UserCredentials } from '../shared/user.model';
+import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 
  
 @Injectable()
@@ -14,7 +15,10 @@ export class AuthService {
   public onAuth: EventEmitter<FirebaseAuthState> = new EventEmitter();
   public firebase: any;
 
-  constructor(private af: AngularFire, @Inject(FirebaseApp)firebase: any) {
+
+  constructor(
+    private af: AngularFire, @Inject(FirebaseApp)firebase: any
+    ) {
     this.firebase = firebase;
     this.af.auth.subscribe((state: FirebaseAuthState) => {
       this.authState = state;
@@ -36,15 +40,13 @@ export class AuthService {
 		});
   }
 
-  resetPassword(email: UserCredentials){
+  resetPassword(email: string) {
     return Observable.create(observer => {
-      this.firebase.auth.sendPasswordResetEmail(email)
+      this.firebase.auth().sendPasswordResetEmail(email)
       .then((success) => {
-          console.log('email sent', success);
           observer.next(success);
         }) 
-        .catch((error) => {
-          console.log('error sending email',error);
+      .catch((error) => {
           observer.error(error);
         });
      });
