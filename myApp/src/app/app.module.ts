@@ -1,10 +1,9 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler, NavController } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { RegisterPage } from '../pages/register/register';
+import { PlacesPage } from '../pages/places/places';
 import { LoginPage } from '../pages/login/login';
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -30,12 +29,11 @@ const myFirebaseAuthConfig = {
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
-    ContactPage,
     HomePage,
     LoginPage,
     RegisterPage,
-    ResetPasswordPage
+    ResetPasswordPage,
+    PlacesPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -45,12 +43,11 @@ const myFirebaseAuthConfig = {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
-    ContactPage,
     HomePage,
     LoginPage,
     RegisterPage,
-    ResetPasswordPage
+    ResetPasswordPage,
+    PlacesPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, AuthService, UserService]
 })

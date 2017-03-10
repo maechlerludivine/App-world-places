@@ -3,6 +3,7 @@ import { Platform, NavController, Nav } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 import { RegisterPage } from '../pages/register/register';
 import { LoginPage } from '../pages/login/login';
+import { PlacesPage } from '../pages/places/places';
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 import { AngularFireModule, AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
 import { HomePage } from '../pages/home/home';
@@ -30,7 +31,8 @@ export class MyApp {
     { title: 'Login', component: LoginPage },
     { title: 'Register', component: RegisterPage},
     { title: 'Home', component: HomePage },
-		{ title: 'ResetPassword', component: ResetPasswordPage}
+		{ title: 'ResetPassword', component: ResetPasswordPage},
+		{ title: 'PlacesPage', component: PlacesPage}
   ];
 
 
