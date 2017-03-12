@@ -33,6 +33,9 @@ export class LoginPage {
 			})
 		})
 	}
+	// logout() {
+	// 	this.authService.logout();
+	// }
 	ResetPasswordPage() {
 		this.navCtrl.push(ResetPasswordPage);
 	}
@@ -43,8 +46,4 @@ export class LoginPage {
 	PlacesPage() {
 		this.navCtrl.push(PlacesPage);
 	}
-
-	// logout() {
-	// 	this.af.auth.logout();
-	// }
 }

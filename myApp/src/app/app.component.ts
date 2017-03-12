@@ -9,6 +9,8 @@ import { AngularFireModule, AngularFire, AuthProviders, AuthMethods } from 'angu
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
+declare var google;
+
 export interface PageInterface {
   title: string;
   component: any;
@@ -23,6 +25,7 @@ export class MyApp {
 
   @ViewChild(Nav) nav: Nav;
 	private rootPage: any;
+	public map: any;
 
   // List of pages that can be navigated to from the left menu
   // the left menu only works after login
@@ -50,12 +53,12 @@ export class MyApp {
 		});
 	}
  
- initializeApp() {
-		this.platform.ready().then(() => {
-			// Okay, so the platform is ready and our plugins are available.
-			// Here you can do any higher level native things you might need.
-			StatusBar.styleDefault();
-			Splashscreen.show();
-		});
+	initializeApp() {
+			this.platform.ready().then(() => {
+				// Okay, so the platform is ready and our plugins are available.
+				// Here you can do any higher level native things you might need.
+				StatusBar.styleDefault();
+				Splashscreen.show();
+			});
 	}
 }
