@@ -40,8 +40,10 @@ export class MyApp {
 
 
 	constructor(public af: AngularFire,private platform : Platform) {
-		this.af.auth.subscribe(auth => console.log(auth));
 		this.rootPage = HomePage;
+		this.af.auth.subscribe(auth => {
+			
+		});
 
 		this.initializeApp();
 	}

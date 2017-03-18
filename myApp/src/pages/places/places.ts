@@ -16,20 +16,25 @@ import { AngularFireModule, AngularFire, AuthProviders, AuthMethods } from 'angu
 export class PlacesPage {
   places = {};
 
-  constructor(public navCtrl: NavController, private placesService : PlacesService) {
+  constructor(
+    public navCtrl: NavController,
+    private placesService: PlacesService
+  ) {
     Geolocation.getCurrentPosition().then(pos => {
       console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
+      this.placesService.getPlaces(pos.coords.latitude, pos.coords.longitude).subscribe(res => {
+        console.log("res > ", res);
+      });
     });
 
     let watch = Geolocation.watchPosition().subscribe(pos => {
       console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
+      this.placesService.getPlaces(pos.coords.latitude, pos.coords.longitude).subscribe(res => {
+        console.log("res > ", res);
+      });
     });
 
     // to stop watching
-    watch.unsubscribe(); 
-   }
-
-  loadPlaces() {
-    this.placesService.getPlaces().subscribe(data => this.places = data);
+    watch.unsubscribe();
   }
 }

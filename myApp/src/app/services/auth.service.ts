@@ -21,6 +21,7 @@ export class AuthService {
     ) {
     this.firebase = firebase;
     this.af.auth.subscribe((state: FirebaseAuthState) => {
+      console.log("state > ", state)
       this.authState = state;
       this.onAuth.emit(state);
     });
