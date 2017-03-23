@@ -37,4 +37,7 @@ export class PlacesPage {
     // to stop watching
     watch.unsubscribe();
   }
+  ngOnInit() {
+    this.
+  }
 }

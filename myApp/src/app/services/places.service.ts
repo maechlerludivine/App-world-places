@@ -15,7 +15,7 @@ export class PlacesService {
   ) { }
 
   getPlaces(latitude: number, longitude: number) {
-    let headers = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
+    let headers = new Headers({ 'Content-Type': 'application/json',  }); // ... Set content type to JSON
     let options = new RequestOptions({ headers: headers }); // Create a request option
     return this.http.get(URL + '-33.8670522,151.1957362' + ENDURL, options)
       .map((res: Response) => res.json());
