@@ -1,0 +1,33 @@
+.title-header {
+    .title-bis {
+        color:#d1d1d1;
+        text-align: center;
+    }
+}
+
+.place {
+    padding:10px 0;
+    border-bottom:1px solid #ccc;
+    width:100%;
+
+    .address {
+        color:#d1d1d1;
+        width:80%;
+        display: inline-block;
+        padding-left:40px;
+        font-size:0.9em;
+    }
+
+    .name {
+        display: inline-block;
+        width:80%;
+        padding-left:10px;
+    }
+
+    .locate {
+        display: inline-block;
+        font-size:2em;
+        color:#d1d1d1;
+        vertical-align: middle;
+    }
+}

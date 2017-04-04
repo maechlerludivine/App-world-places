@@ -1,0 +1,15 @@
+<ion-header>
+	<ion-navbar color="transparent">
+		<ion-title class="title-header">
+			<div class="title-bis">test</div>
+		</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content padding class="details-content">
+	<div class="listPlaces">
+		<div class="place" *ngIf="item">
+			<div>{{ item.photos }}</div>
+			<div>{{ item.name }}</div>
+		</div>
+	</div>
+</ion-content>

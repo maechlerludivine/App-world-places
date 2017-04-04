@@ -1,28 +1,36 @@
+.title-header {
+	.title-bis {
+		color:#d1d1d1;
+	}
+}
+
 .login-content {
 	font-family: 'Raleway', sans-serif;
-	background: url('../assets/img/background.png') no-repeat;
-	background-size: contain;
+
+		.button-inner {
+			color:#000;
+		}
 
 	.form { 
 	 padding-top: 10rem;
 
 	 	.input {
-	 		border-bottom: 1px solid #fff;
+	 		border-bottom: 1px solid #d1d1d1;
 	 	}
 
 	 	.text-input-md {
-	 		color:#fff;
+	 		color:#000;
 
 	 		&::-webkit-input-placeholder {
-	 			color:rgba(255, 255, 255, 0.5);
+	 			color:#000;
 	 		}
 	 	}
 
 		.submit-btn {
-			background-color:transparent;
+			background-color:#d1d1d1;
 			color:#fff;
-			border: 1px solid #fff;
 			margin-top:50px;
+			box-shadow: none;
 		}
 		.register-btn {
 			background-color:#fff;

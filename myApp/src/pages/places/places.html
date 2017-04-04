@@ -1,5 +1,16 @@
-<ion-content class="places-content">
-	<div class="places">
-		{{ places | json }}
+<ion-header>
+	<ion-navbar color="transparent">
+		<ion-title class="title-header">
+			<div class="title-bis">Lieux à proximité</div>
+		</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content padding class="places-content">
+	<div class="listPlaces" *ngFor="let item of places">
+		<div class="place" (click)="DetailsPlace()">
+  			<ion-icon name="locate" class="locate"></ion-icon>
+			<div class="name"><h6>{{ item.name }}</h6></div>
+			<div class="address">{{ item.vicinity }}</div>
+		</div>
 	</div>
 </ion-content>

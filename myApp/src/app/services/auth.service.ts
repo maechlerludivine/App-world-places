@@ -41,6 +41,10 @@ export class AuthService {
 		});
   }
 
+  logout(credentials: UserCredentials) {
+    return this.af.auth.logout();
+  }
+
   resetPassword(email: string) {
     return Observable.create(observer => {
       this.firebase.auth().sendPasswordResetEmail(email)

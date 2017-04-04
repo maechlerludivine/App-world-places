@@ -1,0 +1,11 @@
+<ion-content class="places-content">
+<ion-header>
+	<ion-navbar primary>
+	<h2>World Places</h2>		
+	</ion-navbar>
+</ion-header>
+	<div *ngFor="let item of places">
+		<h4 >{{ item.name }}</h4>
+			<div>{{ item.vicinity }}</div>
+	</div>
+</ion-content>

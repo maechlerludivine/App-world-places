@@ -1,10 +1,12 @@
-<ion-content class="register-content" padding>
-	<ion-header>
-	  <ion-navbar class="navbar">
-		  <h2>World Places</h2>
-	  </ion-navbar>
-	</ion-header>
-	    
+<ion-header>
+	<ion-navbar color="transparent">
+		<ion-title class="title-header">
+			<div class="title-bis">S'inscrire</div>
+		</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content class="register-content" padding>	    
 	    <form (ngSubmit)="register()" #registerForm="ngForm" novalidate class="form">
 
 				<ion-input type="text" placeholder="Nom" name="lastname" [(ngModel)]="form.lastname" required></ion-input>
@@ -17,5 +19,5 @@
 
 				<button ion-button class="submit-btn" full [disabled]="!registerForm.valid" (click)="LoginPage()">Valider</button>
 	    </form>
-				<button ion-button type="button" class="register-btn" block clear (click)="LoginPage()">Se connecter</button>
+				<button ion-button type="button" class="login-btn" block clear (click)="LoginPage()">Se connecter</button>
 </ion-content>

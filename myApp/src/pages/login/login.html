@@ -1,9 +1,11 @@
+<ion-header>
+  <ion-navbar color="transparent">
+    <ion-title class="title-header">
+      <div class="title-bis">Se connecter</div>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
 <ion-content class="login-content" padding>
-	<ion-header>
-	  <ion-navbar>
-	  </ion-navbar>
-	  <h2>World Places</h2>
-	</ion-header>
     <form (ngSubmit)="login()" #loginForm="ngForm" novalidate class="form">
 
           <ion-input class="input" type="text" placeholder="Email" name="email" [(ngModel)]="loginCredentials.email" required></ion-input>

@@ -24,7 +24,8 @@ export class LoginPage {
   constructor(
 	  private navCtrl: NavController,
 	  private authService: AuthService,
-	  private userService: UserService
+	  private userService: UserService,
+	  public af: AngularFire
 	  ) { }
 
   	login() {
@@ -33,9 +34,11 @@ export class LoginPage {
 			})
 		})
 	}
+
 	// logout() {
-	// 	this.authService.logout();
+	// 	this.authService.logout()
 	// }
+
 	ResetPasswordPage() {
 		this.navCtrl.push(ResetPasswordPage);
 	}
