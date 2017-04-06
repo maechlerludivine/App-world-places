@@ -1,5 +1,6 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler, NavController } from 'ionic-angular';
+import { HTTP } from '@ionic-native/http';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { RegisterPage } from '../pages/register/register';
@@ -8,11 +9,12 @@ import { LoginPage } from '../pages/login/login';
 import { AddContactPage } from '../pages/add-contact/add-contact'
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 import { DetailsPlacePage } from '../pages/details-place/details-place';
+import { MessageResetPasswordPage } from '../pages/message-reset-password/message-reset-password';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
-import { AuthService, UserService } from './services';
+import { AuthService, UserService, PlacesService } from './services';
 import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 
 const myFirebaseConfig = {
@@ -37,7 +39,8 @@ const myFirebaseAuthConfig = {
     ResetPasswordPage,
     PlacesPage,
     AddContactPage,
-    DetailsPlacePage
+    DetailsPlacePage,
+    MessageResetPasswordPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -53,8 +56,18 @@ const myFirebaseAuthConfig = {
     ResetPasswordPage,
     PlacesPage,
     AddContactPage,
-    DetailsPlacePage
+    DetailsPlacePage,
+    MessageResetPasswordPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, AuthService, UserService]
+  providers: [
+    {
+    provide: ErrorHandler, 
+    useClass: IonicErrorHandler
+    }, 
+    AuthService, 
+    UserService,
+    PlacesService,
+    HTTP
+  ]
 })
 export class AppModule {}

@@ -7,6 +7,7 @@ import { AddContactPage } from '../pages/add-contact/add-contact'
 import { PlacesPage } from '../pages/places/places';
 import { DetailsPlacePage } from '../pages/details-place/details-place';
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
+import { PlacesService } from './services';
 import { AngularFireModule, AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
@@ -43,7 +44,11 @@ export class MyApp {
   ];
 
 
-	constructor(public af: AngularFire,private platform : Platform) {
+	constructor(
+		public af: AngularFire,
+		private platform : Platform,
+		public placesService : PlacesService
+		) {
 		this.rootPage = HomePage;
 		this.af.auth.subscribe(auth => {
 			

@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/fo
 import { NavController, NavParams } from 'ionic-angular';
 import { UserService, AuthService } from '../../app/services';
 import { HomePage } from '../home/home';
+import { MessageResetPasswordPage } from '../message-reset-password/message-reset-password';
 
 @Component({
   selector: 'page-reset-password',
@@ -28,8 +29,7 @@ export class ResetPasswordPage {
   submit(): void {
     if (this.resetPasswordForm.valid) {
       this.authService.resetPassword(this.email.value).subscribe(registerData => {
-        alert('Password recovery link is sent.');
-        this.navCtrl.setRoot(HomePage, { messagePassword: true });
+        this.navCtrl.setRoot(MessageResetPasswordPage, { messagePassword: true });
       }, registerError => {
         console.log(registerError);
         if (registerError.code === 'auth/user-not-found') {

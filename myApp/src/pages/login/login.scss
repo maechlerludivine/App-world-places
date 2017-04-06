@@ -1,15 +1,11 @@
-.title-header {
-	.title-bis {
-		color:#d1d1d1;
-	}
+.title-bis-login {
+	color:#008080;
+	font-size:18px;
 }
 
 .login-content {
 	font-family: 'Raleway', sans-serif;
 
-		.button-inner {
-			color:#000;
-		}
 
 	.form { 
 	 padding-top: 10rem;
@@ -26,15 +22,24 @@
 	 		}
 	 	}
 
+		 .reset-btn {
+			width: 100%;
+			margin-top: 20px;
+			padding: 10px;
+			background-color: #ffa500;
+			color: #fff;
+		 }
+
 		.submit-btn {
-			background-color:#d1d1d1;
+			background-color:#008080;
 			color:#fff;
 			margin-top:50px;
 			box-shadow: none;
+			opacity: 1;
 		}
 		.register-btn {
 			background-color:#fff;
-			color:#444;
+			color:#008080;
 
 			&:hover {
 				background-color:none;

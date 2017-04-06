@@ -47,6 +47,6 @@ export class LoginPage {
 	}
 
 	PlacesPage() {
-		this.navCtrl.push(PlacesPage);
+		this.navCtrl.setRoot(PlacesPage);
 	}
 }

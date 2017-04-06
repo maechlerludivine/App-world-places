@@ -20,18 +20,16 @@ export class HomePage {
 	public get parameters() {
 		return [NavController];
 	}
-	messagePassword: boolean;
 
 	constructor(
 		public navCtrl: NavController,
 		private navParams: NavParams,
 		private af: AngularFire,
 	) {
-		this.messagePassword = this.navParams.get("messagePassword") || false;
 
 		this.af.auth.subscribe(auth => {
 			console.log(auth)
-			this.navCtrl.setRoot(PlacesPage);
+			// this.navCtrl.setRoot(PlacesPage);
 		});
 
 	}

@@ -1,8 +1,6 @@
 <ion-header>
   <ion-navbar color="transparent">
-    <ion-title class="title-header">
-      <div class="title-bis">Se connecter</div>
-    </ion-title>
+      <div class="title-bis-login">Se connecter</div>
   </ion-navbar>
 </ion-header>
 <ion-content class="login-content" padding>
@@ -12,7 +10,7 @@
 
           <ion-input class="input" type="password" placeholder="Mot de passe" name="password" [(ngModel)]="loginCredentials.password" required></ion-input>
 
-          <button ion-button type="button" block (click)="ResetPasswordPage()">Reset password</button>
+          <button type="button" class="reset-btn" block (click)="ResetPasswordPage()">Réinitialiser mot de passe</button>
 
       <button ion-button class="submit-btn" full type="submit" [disabled]="!loginForm.form.valid" (click)="PlacesPage()">Valider</button>
       <button ion-button class="register-btn" type="button" block clear (click)="RegisterPage()">S'inscrire</button>
