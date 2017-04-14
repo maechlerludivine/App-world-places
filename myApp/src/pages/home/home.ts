@@ -6,6 +6,7 @@ import { LoginPage } from '../login/login';
 import { ResetPasswordPage } from '../reset-password/reset-password';
 import { PlacesPage } from '../places/places';
 import { AddContactPage } from '../add-contact/add-contact';
+import { LocatePage } from '../locate/locate';
 
 import { AngularFire } from 'angularfire2';
 
@@ -29,7 +30,7 @@ export class HomePage {
 
 		this.af.auth.subscribe(auth => {
 			console.log(auth)
-			// this.navCtrl.setRoot(PlacesPage);
+			this.navCtrl.setRoot(PlacesPage);
 		});
 
 	}

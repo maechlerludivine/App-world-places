@@ -1,0 +1,35 @@
+.title-bis-locate {
+    text-align:center;
+    color:#d1d1d1;
+	font-size:18px;
+}
+.locate-section {
+    margin-top:100px;
+
+    h4 {
+        text-align:center;
+        color:#d1d1d1;
+    }
+
+    p {
+        text-align: center;
+        color:#d1d1d1;
+    }
+
+    .icon-locate {
+
+        display: block;
+        background-color:transparent;
+        width:100px;
+        height:100px;
+        border-radius:50%;
+        border:1px solid #008080;
+        margin:auto;
+
+        img {
+            width:50%;
+            margin:25px auto;
+            display: block;
+        }
+    }
+}

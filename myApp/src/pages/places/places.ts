@@ -6,6 +6,8 @@ import { LoginPage } from '../login/login';
 import { HomePage } from '../home/home';
 import { DetailsPlacePage } from '../details-place/details-place';
 import { Geolocation } from 'ionic-native';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
 
 
 import { AngularFireModule, AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
@@ -29,7 +31,7 @@ export class PlacesPage implements OnInit {
   ngOnInit() {
     Geolocation.getCurrentPosition().then(pos => {
       console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
-      this.getPlaces(pos);
+      this.getPlacesList(pos);
     });
 
     let watch = Geolocation.watchPosition().subscribe(pos => {
@@ -40,9 +42,9 @@ export class PlacesPage implements OnInit {
     watch.unsubscribe();
   }
 
-  getPlaces(pos) {
+  getPlacesList(pos) {
     console.log("coords > ", pos)
-    this.placesService.getPlaces(pos.coords.latitude, pos.coords.longitude).subscribe(res => {
+    this.placesService.getPlacesList(pos.coords.latitude, pos.coords.longitude).subscribe(res => {
       console.log("res > ", res);
       this.places = res.results
     });
@@ -52,7 +54,9 @@ export class PlacesPage implements OnInit {
     this.navCtrl.setRoot(LoginPage);
   }
 
-  DetailsPlace() {
-    this.navCtrl.push(DetailsPlacePage);
+  getDetailsPlace(id: string) {
+    this.navCtrl.push(DetailsPlacePage, {
+      item: id
+    });
   }
 }

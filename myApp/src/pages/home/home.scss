@@ -14,10 +14,18 @@
 
 	.login-btn {
 		background-color: #008080;
+
+		&:hover {
+			background:#008080;
+		}
 	}
 
 	.register-btn {
 		background-color:#d1d1d1;
+
+		&:hover {
+			background-color:#d1d1d1;
+		}
 	}
 
 	.button-md {
@@ -25,9 +33,5 @@
 		box-shadow: none;
 		width:300px;
 		margin:10px auto;
-
-		&:hover {
-			background: none;
-		}
 	}
 }

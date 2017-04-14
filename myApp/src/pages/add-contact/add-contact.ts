@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { Contacts } from 'ionic-native';
+import { Contacts, Contact, ContactField, ContactName } from '@ionic-native/contacts';
 
 
 @Component({
@@ -9,21 +9,18 @@ import { Contacts } from 'ionic-native';
 })
 export class AddContactPage { 
   public contactsfound: any;
-  public search: any;
-  public contacttobefound: any;
-  
+
   constructor(
     public navCtrl: NavController,
     private contacts: Contacts
   ) {
     
-    this.contacttobefound = '';
     this.contactsfound = [];
-    this.getContact("");
+    this.getContact();
   }
   
-  getContact(val) {
-      Contacts.find([], {filter: val,multiple:true}).then((contacts) => {
+  getContact() {
+      this.contacts.find(["*"], {multiple:true}).then((contacts) => {
         this.contactsfound = contacts;
       });
 

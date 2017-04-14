@@ -1,4 +1,5 @@
 <ion-header>
+<ion-header>
   <ion-navbar>
     <ion-title>
       Contact
@@ -7,5 +8,12 @@
 </ion-header>
 
 <ion-content>
+      <ion-label floating class="placeholder">Entrez le nom que vous cherchez ici</ion-label>
+      <ion-input type="text" [(ngModel)]="contacttobefound"></ion-input>
 
+      <button block (click)="getContact(contacttobefound)">Rechercher</button>
+
+      <div *ngFor="let item of contactsfound">
+        {{item.name.givenName}} {{item.name.familyName}}
+      </div>
 </ion-content>

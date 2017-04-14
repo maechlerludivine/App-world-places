@@ -1,11 +1,15 @@
-<ion-content class="places-content">
 <ion-header>
-	<ion-navbar primary>
-	<h2>World Places</h2>		
+	<ion-navbar color="transparent">
+		<div class="title-bis-locate">Se localiser</div>
 	</ion-navbar>
 </ion-header>
-	<div *ngFor="let item of places">
-		<h4 >{{ item.name }}</h4>
-			<div>{{ item.vicinity }}</div>
+<ion-content class="locate-section" padding>
+	<h4>Tu te trouves dans un endroit sympa ?</h4>
+
+	<div class="icon-locate" (click)="placesPage()">
+		<img src="../assets/img/location-pointer.png">
 	</div>
+
+	<p>Localise toi ! ;)</p>
+
 </ion-content>

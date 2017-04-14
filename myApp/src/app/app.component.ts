@@ -7,10 +7,13 @@ import { AddContactPage } from '../pages/add-contact/add-contact'
 import { PlacesPage } from '../pages/places/places';
 import { DetailsPlacePage } from '../pages/details-place/details-place';
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
+import { LocatePage } from '../pages/locate/locate';
 import { PlacesService } from './services';
 import { AngularFireModule, AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
+import { ProfilePage } from '../pages/profile/profile';
+
 
 declare var google;
 
@@ -37,10 +40,9 @@ export class MyApp {
     { title: 'Login', component: LoginPage },
     { title: 'Register', component: RegisterPage},
     { title: 'Home', component: HomePage },
-		{ title: 'ResetPassword', component: ResetPasswordPage},
-		{ title: 'Places', component: PlacesPage},
-		{	title: 'AddContact', component: AddContactPage },
-		{	title: 'DetailsPlace', component: DetailsPlacePage }
+	{ title: 'ResetPassword', component: ResetPasswordPage},
+	{ title: 'Places', component: PlacesPage},
+	{ title: 'DetailsPlace', component: DetailsPlacePage },
   ];
 
 

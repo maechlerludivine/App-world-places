@@ -42,6 +42,7 @@
   "cordovaPlugins": [
     "cordova-plugin-whitelist",
     "cordova-plugin-statusbar",
+    "cordova-plugin-contacts",
     "cordova-plugin-console",
     "cordova-plugin-device",
     "cordova-plugin-splashscreen",
