@@ -13,8 +13,7 @@ import { PlacesPage } from '../places/places';
 export class TabsPage {
 
   tab1Root: any = ProfilePage;
-  tab2Root: any = AddContactPage;
-  tab3Root: any = PlacesPage;
+  tab2Root: any = PlacesPage;
   mySelectedIndex: number;
 
   constructor(navParams: NavParams) {

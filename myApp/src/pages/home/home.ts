@@ -7,6 +7,7 @@ import { ResetPasswordPage } from '../reset-password/reset-password';
 import { PlacesPage } from '../places/places';
 import { AddContactPage } from '../add-contact/add-contact';
 import { LocatePage } from '../locate/locate';
+import { UserService, AuthService } from '../../app/services';
 
 import { AngularFire } from 'angularfire2';
 
@@ -26,11 +27,15 @@ export class HomePage {
 		public navCtrl: NavController,
 		private navParams: NavParams,
 		private af: AngularFire,
+		private userService: UserService
 	) {
 
 		this.af.auth.subscribe(auth => {
 			console.log(auth)
-			this.navCtrl.setRoot(PlacesPage);
+			if (auth)
+				this.navCtrl.setRoot(PlacesPage);
+			console.log("auth > ", auth)
+			this.userService.setUserData(auth);
 		});
 
 	}

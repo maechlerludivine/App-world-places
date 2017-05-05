@@ -11,28 +11,31 @@ import { AngularFireModule, AngularFire, AuthProviders, AuthMethods } from 'angu
 
 
 @Component({
-  selector: 'app-login',
-  templateUrl: 'login.html'
+	selector: 'app-login',
+	templateUrl: 'login.html'
 })
 export class LoginPage {
 
-	loginCredentials = {email: '', password: ''};
-	email:AbstractControl;
+	loginCredentials = { email: '', password: '' };
+	email: AbstractControl;
 	password: AbstractControl;
-	error:any;
+	error: any;
 	submitted = false;
 
-  constructor(
-	  private navCtrl: NavController,
-	  private authService: AuthService,
-	  private userService: UserService,
-	  public af: AngularFire
-	  ) { }
+	constructor(
+		private navCtrl: NavController,
+		private authService: AuthService,
+		private userService: UserService,
+		public af: AngularFire
+	) { }
 
-  	login() {
+	login() {
 		this.authService.login(this.loginCredentials).then(res => {
+			console.log("res > ", res)
+			this.userService.setUserData(res);
 			this.userService.getProfil().subscribe(data => {
-			})
+				// this.navCtrl.setRoot(LocatePage);
+			});
 		})
 	}
 
@@ -43,11 +46,8 @@ export class LoginPage {
 	ResetPasswordPage() {
 		this.navCtrl.push(ResetPasswordPage);
 	}
+
 	RegisterPage() {
 		this.navCtrl.push(RegisterPage);
-	}
-
-	LocatePage() {
-		this.navCtrl.setRoot(LocatePage);
 	}
 }

@@ -11,12 +11,13 @@ import { AddContactPage } from '../pages/add-contact/add-contact'
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 import { DetailsPlacePage } from '../pages/details-place/details-place';
 import { LocatePage } from '../pages/locate/locate';
+import { FavoritesPage } from '../pages/favorites/favorites';
 import { MessageResetPasswordPage } from '../pages/message-reset-password/message-reset-password';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
-import { AuthService, UserService, PlacesService } from './services';
+import { AuthService, UserService, PlacesService, FavoritesService } from './services';
 import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 import { TabsPage } from '../pages/tabs/tabs';
 
@@ -24,6 +25,7 @@ const myFirebaseConfig = {
     apiKey: "AIzaSyATE_DqMHFKC-u-uV1INPrEcHVW6y8k2Aw",
     authDomain: "test-4cff0.firebaseapp.com",
     databaseURL: "https://test-4cff0.firebaseio.com",
+    projectId: "test-4cff0",
     storageBucket: "test-4cff0.appspot.com",
     messagingSenderId: "476274743436"
 };
@@ -45,7 +47,8 @@ const myFirebaseAuthConfig = {
     DetailsPlacePage,
     MessageResetPasswordPage,
     LocatePage,
-    TabsPage
+    TabsPage,
+    FavoritesPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -64,7 +67,8 @@ const myFirebaseAuthConfig = {
     DetailsPlacePage,
     MessageResetPasswordPage,
     LocatePage,
-    TabsPage
+    TabsPage,
+    FavoritesPage
   ],
   providers: [
     {
@@ -74,6 +78,7 @@ const myFirebaseAuthConfig = {
     AuthService, 
     UserService,
     PlacesService,
+    FavoritesService,
     HTTP,
     Contacts
   ]

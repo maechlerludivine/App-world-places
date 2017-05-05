@@ -45,7 +45,6 @@ export class RegisterPage {
 			}
 			
 			this.userService.updateMyProfile(userProfile).then(res => {
-				console.log("res profile > ", res);
 			})
 		}))
 	}

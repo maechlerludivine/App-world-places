@@ -44,10 +44,10 @@ export class PlacesPage implements OnInit {
 
   getPlacesList(pos) {
     console.log("coords > ", pos)
-    this.placesService.getPlacesList(pos.coords.latitude, pos.coords.longitude).subscribe(res => {
-      console.log("res > ", res);
-      this.places = res.results
-    });
+    // this.placesService.getPlacesList(pos.coords.latitude, pos.coords.longitude).subscribe(res => {
+    //   console.log("res > ", res);
+    //   this.places = res.results
+    // });
   }
 
   logout() {

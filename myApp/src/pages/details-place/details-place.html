@@ -1,17 +1,25 @@
 <ion-header>
 	<ion-navbar class="detailsView">
-		<ion-title class="title-header" *ngIf="placeid">
-			<div class="title-bis-details">{{ places.name }}</div>
+		<ion-title class="title-header" *ngIf="place">
+			<div class="title-bis-details">{{ place.name }}</div>
 		</ion-title>
 	</ion-navbar>
 </ion-header>
 	<div class="listPlaces">
-		<div class="placeDetails" *ngIf="placeid">
-			<img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth={{places.photos[0].width}}&photo_reference={{places.photos[0].photo_reference}}&key=AIzaSyATE_DqMHFKC-u-uV1INPrEcHVW6y8k2Aw" alt="">
-			<h2>{{ placeid.name }}</h2>
-			<div class="addressViewDetails">{{ places.formatted_address }}</div>
-			<div class="rating">Note : {{ places.rating }}</div>
+		<div class="placeDetails" *ngIf="place">
+			<img [src]="'https://maps.googleapis.com/maps/api/place/photo?maxwidth=500&photo_reference=' + place.photos[0].photo_reference + '&key=AIzaSyATE_DqMHFKC-u-uV1INPrEcHVW6y8k2Aw'" alt="">
+			<h2>{{ place.name }}</h2>
+			<div class="addressViewDetails">{{ place.formatted_address }}</div>
+			<div class="schedule">Horaires : {{ place.opening_hours?.weekday_text }}</div>
+			<div class="phoneNumber">Téléphone : {{ place.formatted_phone_number }}</div>
+			<div class="rating">Note : {{ place.rating }}</div>
+			<div class="comment">
+				<div class="authorName">{{ place.reviews[0].author_name }}</div>
+				<p> {{ place.reviews[0].text }}</p>
+				<span class="time">{{ place.reviews[0].relative_time_description }}</span><br>
+				<span class="reviewRating">Note : {{ place.reviews[0].rating }}</span>
+			</div>
 		</div>
 	</div>
 
-      <button class="submit-btn" block type="button">Partager</button>
+      <button class="submit-btn" block type="submit" (click)="updateMyFavorites()">J'enregistre ce bon plan !</button>

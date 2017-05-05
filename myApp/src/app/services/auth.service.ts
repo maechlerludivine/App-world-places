@@ -7,7 +7,6 @@ import 'rxjs/add/operator/map';
 import { UserCredentials } from '../shared/user.model';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 
- 
 @Injectable()
 export class AuthService {
   currentUser: UserCredentials;
@@ -17,28 +16,29 @@ export class AuthService {
 
 
   constructor(
-    private af: AngularFire, @Inject(FirebaseApp)firebase: any
-    ) {
+    private af: AngularFire, 
+    @Inject(FirebaseApp) firebase: any
+  ) {
     this.firebase = firebase;
-    this.af.auth.subscribe((state: FirebaseAuthState) => {
-      console.log("state > ", state)
-      this.authState = state;
-      this.onAuth.emit(state);
-    });
+    // this.af.auth.subscribe((state: FirebaseAuthState) => {
+    //   console.log("state > ", state)
+    //   this.authState = state;
+    //   this.onAuth.emit(state);
+    // });
   }
- 
+
   create(createUserCredentials: UserCredentials) {
     return this.af.auth.createUser({
-			email: createUserCredentials.email,
-			password: createUserCredentials.password,
-		});
+      email: createUserCredentials.email,
+      password: createUserCredentials.password,
+    });
   }
 
   login(credentials: UserCredentials) {
     return this.af.auth.login({
-			email: credentials.email,
-			password: credentials.password,
-		});
+      email: credentials.email,
+      password: credentials.password,
+    });
   }
 
   logout(credentials: UserCredentials) {
@@ -48,12 +48,12 @@ export class AuthService {
   resetPassword(email: string) {
     return Observable.create(observer => {
       this.firebase.auth().sendPasswordResetEmail(email)
-      .then((success) => {
+        .then((success) => {
           observer.next(success);
-        }) 
-      .catch((error) => {
+        })
+        .catch((error) => {
           observer.error(error);
         });
-     });
+    });
   }
 }

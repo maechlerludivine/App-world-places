@@ -1,13 +1,16 @@
 import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { NavController, AlertController, LoadingController, Loading, NavParams, Platform } from 'ionic-angular';
-import { AuthService, PlacesService } from '../../app/services';
+import { AuthService, PlacesService, FavoritesService } from '../../app/services';
 import { RegisterPage } from '../register/register';
 import { LoginPage } from '../login/login';
 import { HomePage } from '../home/home';
 import { PlacesPage } from '../places/places';
+import { FavoritesPage } from '../favorites/favorites';
 import { Geolocation } from 'ionic-native';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
+
+import { Place } from '../../app/shared/place.model';
 
 @Component({
   selector: 'page-details-place',
@@ -16,6 +19,7 @@ import 'rxjs/add/observable/of';
 })
 export class DetailsPlacePage {
   placeid:string;
+  place: Place;
 
   constructor(
     public navCtrl: NavController,
@@ -25,15 +29,17 @@ export class DetailsPlacePage {
   ) {
     
     this.placeid = this.navParams.get('item');
-    console.log(this.navParams.get('item'))
     this.getPlacesDetails(this.placeid);
   }
 
   getPlacesDetails(placeid) {
-    console.log("placeid > ", placeid);
     this.placesService.getPlacesDetails(placeid).subscribe(res => {
       console.log("res >", res)
-      this.placeid = res.results
+      this.place = res.result;
     });
+  }
+
+  updateMyFavorites(placeId: string) {
+    this.navCtrl.setRoot(FavoritesPage);
   }
 }

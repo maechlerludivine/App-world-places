@@ -8,7 +8,8 @@ import { PlacesPage } from '../pages/places/places';
 import { DetailsPlacePage } from '../pages/details-place/details-place';
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 import { LocatePage } from '../pages/locate/locate';
-import { PlacesService } from './services';
+import { FavoritesPage } from '../pages/favorites/favorites';
+import { PlacesService, FavoritesService } from './services';
 import { AngularFireModule, AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
@@ -40,22 +41,20 @@ export class MyApp {
     { title: 'Login', component: LoginPage },
     { title: 'Register', component: RegisterPage},
     { title: 'Home', component: HomePage },
-	{ title: 'ResetPassword', component: ResetPasswordPage},
-	{ title: 'Places', component: PlacesPage},
-	{ title: 'DetailsPlace', component: DetailsPlacePage },
+		{ title: 'ResetPassword', component: ResetPasswordPage},
+		{ title: 'Places', component: PlacesPage},
+		{ title: 'DetailsPlace', component: DetailsPlacePage },
+		{ title: 'Favorites', component: FavoritesPage }
   ];
 
 
 	constructor(
 		public af: AngularFire,
 		private platform : Platform,
-		public placesService : PlacesService
+		public placesService : PlacesService,
+		public FavoritesService: FavoritesService
 		) {
 		this.rootPage = HomePage;
-		this.af.auth.subscribe(auth => {
-			
-		});
-
 		this.initializeApp();
 	}
 

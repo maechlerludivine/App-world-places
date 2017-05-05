@@ -7,3 +7,7 @@ export class UserProfile {
     lastname: string;
     firstname: string;
 }
+
+export class Favorites {
+    name:string;
+}

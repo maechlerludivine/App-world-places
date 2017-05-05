@@ -6,6 +6,15 @@
 .title-bis-details {
     color:#fff
 }
+
+.bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+    color:#fff;
+}
+
+.bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+    color:#fff;
+}
+
 h2 {
     font-size:18px;
     color:#4d4d4d;
@@ -15,6 +24,7 @@ h2 {
 .addressViewDetails {
     color:#008080;
     margin:20px 10px;
+    font-weight: 600;
 }
 
 .rating {
@@ -22,9 +32,29 @@ h2 {
     margin:20px 10px;
 }
 
+.phoneNumber {
+    margin:20px 10px;
+    color:#4d4d4d;
+    font-weight:600;
+}
+
 .schedule {
     color:#4d4d4d;
     margin:20px 10px;
+}
+.comment {
+    margin:50px 10px;
+    color:#4d4d4d;
+
+    .authorName {
+        font-weight: 600;
+    }
+    .reviewRating {
+        font-weight: 600;
+    }
+    .time {
+        font-style: italic;
+    }
 }
 
 .submit-btn {
