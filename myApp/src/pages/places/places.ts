@@ -5,6 +5,7 @@ import { RegisterPage } from '../register/register';
 import { LoginPage } from '../login/login';
 import { HomePage } from '../home/home';
 import { DetailsPlacePage } from '../details-place/details-place';
+import { ProfilePage } from '../profile/profile';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
@@ -57,6 +58,11 @@ export class PlacesPage implements OnInit {
       this.afAuth.auth.signOut();
       this.navCtrl.setRoot(LoginPage);
   }
+
+  goToProfile() {
+      this.navCtrl.push(ProfilePage);
+  }
+
 
   getDetailsPlace(id: string) {
     this.navCtrl.push(DetailsPlacePage, {

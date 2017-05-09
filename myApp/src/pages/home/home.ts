@@ -32,11 +32,14 @@ export class HomePage {
 	) {
 
 		this.afAuth.authState.subscribe(auth => {
-			console.log(auth)
-			if (auth)
+			if (auth) {
 				this.navCtrl.setRoot(PlacesPage);
-			console.log("auth > ", auth)
-			this.userService.setUserData(auth);
+				this.userService.setUserData(auth);
+				console.log("User is logged in !");
+			} else {
+				this.navCtrl.setRoot(LoginPage);
+			}
+
 		});
 
 	}

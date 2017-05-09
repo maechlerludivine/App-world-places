@@ -51,7 +51,8 @@ export class MyApp {
 		{ title: 'Places', component: PlacesPage },
 		{ title: 'DetailsPlace', component: DetailsPlacePage },
 		{ title: 'Favorites', component: FavoritesPage },
-		{ title : 'Slides', component: SlidesPage }
+		{ title : 'Slides', component: SlidesPage },
+		{ title: 'Profile', component: ProfilePage}
 	];
 
 

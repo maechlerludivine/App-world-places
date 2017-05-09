@@ -17,6 +17,7 @@ import { DetailsPlacePage } from '../pages/details-place/details-place';
 import { LocatePage } from '../pages/locate/locate';
 import { FavoritesPage } from '../pages/favorites/favorites';
 import { SlidesPage } from '../pages/slides/slides';
+import { ProfilePage } from '../pages/profile/profile';
 import { MessageResetPasswordPage } from '../pages/message-reset-password/message-reset-password';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
@@ -53,7 +54,8 @@ const myFirebaseConfig = {
     LocatePage,
     TabsPage,
     FavoritesPage,
-    SlidesPage
+    SlidesPage,
+    ProfilePage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -77,7 +79,8 @@ const myFirebaseConfig = {
     LocatePage,
     TabsPage,
     FavoritesPage,
-    SlidesPage
+    SlidesPage,
+    ProfilePage
   ],
   providers: [
     {

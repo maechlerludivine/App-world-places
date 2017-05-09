@@ -29,4 +29,5 @@ export class FavoritesService {
     updateMyFavorites(placeId: string) {
     return this.db.list('favorites/' + this.userService.getUserData().uid).push(placeId);
     }
+
 }
