@@ -1,0 +1,35 @@
+.box {
+    font-family: "Raleway";
+
+    &.one {
+        background-image: url(../assets/img/splashscreen.jpg);
+        background-size: 100vw auto;
+        background-repeat: no-repeat;
+    }
+
+    &.two {
+        background-image: url('../assets/img/background.jpg');
+        background-size: 100vw auto;
+        background-repeat: no-repeat;
+        padding:0 20px;
+        color:#fff;
+    }
+
+    &.three {
+        background-image: url('../assets/img/background.jpg');
+        background-size: 100vw auto;
+        background-repeat: no-repeat;
+        padding:0 20px;
+        color:#fff;
+    }
+
+    button {
+        &.btn-to-home {
+            width:100%;
+            height:30px;
+            background-color: #008080;
+            color:#fff;
+            text-transform: uppercase;
+        }
+    }
+}

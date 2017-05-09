@@ -1,3 +1,13 @@
+<ion-header >
+  <ion-navbar color="transparent">
+    <ion-title class="title-header">
+       <div class="title">Mes bons plans</div>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content class="favorites">
+
 <div *ngFor="let item of favorites() | async">
     {{ item }}
 </div>
+</ion-content>

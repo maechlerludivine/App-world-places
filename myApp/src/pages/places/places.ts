@@ -1,16 +1,17 @@
 import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { NavController, AlertController, LoadingController, Loading, NavParams, Platform } from 'ionic-angular';
-import { AuthService, PlacesService } from '../../app/services';
+import { AuthService, PlacesService, UserService } from '../../app/services';
 import { RegisterPage } from '../register/register';
 import { LoginPage } from '../login/login';
 import { HomePage } from '../home/home';
 import { DetailsPlacePage } from '../details-place/details-place';
-import { Geolocation } from 'ionic-native';
+import { Geolocation } from '@ionic-native/geolocation';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
-
-import { AngularFireModule, AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   selector: 'app-places',
@@ -24,17 +25,19 @@ export class PlacesPage implements OnInit {
     public navCtrl: NavController,
     private placesService: PlacesService,
     private authService: AuthService,
+    private geolocation: Geolocation,
+		public afAuth: AngularFireAuth
   ) {
 
   }
 
   ngOnInit() {
-    Geolocation.getCurrentPosition().then(pos => {
+    this.geolocation.getCurrentPosition().then(pos => {
       console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
       this.getPlacesList(pos);
     });
 
-    let watch = Geolocation.watchPosition().subscribe(pos => {
+    let watch = this.geolocation.watchPosition().subscribe(pos => {
       console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
     });
 
@@ -44,14 +47,15 @@ export class PlacesPage implements OnInit {
 
   getPlacesList(pos) {
     console.log("coords > ", pos)
-    // this.placesService.getPlacesList(pos.coords.latitude, pos.coords.longitude).subscribe(res => {
-    //   console.log("res > ", res);
-    //   this.places = res.results
-    // });
+    this.placesService.getPlacesList(pos.coords.latitude, pos.coords.longitude).subscribe(res => {
+      console.log("res > ", res);
+      this.places = res.results
+    });
   }
 
   logout() {
-    this.navCtrl.setRoot(LoginPage);
+      this.afAuth.auth.signOut();
+      this.navCtrl.setRoot(LoginPage);
   }
 
   getDetailsPlace(id: string) {

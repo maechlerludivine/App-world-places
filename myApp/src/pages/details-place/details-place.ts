@@ -6,7 +6,7 @@ import { LoginPage } from '../login/login';
 import { HomePage } from '../home/home';
 import { PlacesPage } from '../places/places';
 import { FavoritesPage } from '../favorites/favorites';
-import { Geolocation } from 'ionic-native';
+import { Geolocation } from '@ionic-native/geolocation';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
@@ -40,6 +40,6 @@ export class DetailsPlacePage {
   }
 
   updateMyFavorites(placeId: string) {
-    this.navCtrl.setRoot(FavoritesPage);
+    this.navCtrl.push(FavoritesPage);
   }
 }

@@ -7,8 +7,10 @@ import { HomePage } from '../home/home';
 import { LocatePage } from '../locate/locate';
 import { PlacesPage } from '../places/places';
 import { UserService, AuthService } from '../../app/services';
-import { AngularFireModule, AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
-
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
+import { environment } from '../environments/environment';
 
 @Component({
 	selector: 'app-login',
@@ -26,7 +28,7 @@ export class LoginPage {
 		private navCtrl: NavController,
 		private authService: AuthService,
 		private userService: UserService,
-		public af: AngularFire
+		public afAuth: AngularFireAuth
 	) { }
 
 	login() {
@@ -38,10 +40,6 @@ export class LoginPage {
 			});
 		})
 	}
-
-	// logout() {
-	// 	this.authService.logout()
-	// }
 
 	ResetPasswordPage() {
 		this.navCtrl.push(ResetPasswordPage);

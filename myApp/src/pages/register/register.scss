@@ -2,10 +2,11 @@
 	color:#d1d1d1;
 	font-size:18px;
 	text-align: left;
+    font-family: "Raleway";
 }
 
 .register-content {
-	font-family: 'Raleway', sans-serif;
+    font-family: "Raleway";
 
 	.form { 
 	 padding-top: 10rem;
@@ -15,7 +16,6 @@
 	 	}
 
 	 	.text-input-md {
-	 		color:#fff;
 
 	 		&::-webkit-input-placeholder {
 				color:#000;

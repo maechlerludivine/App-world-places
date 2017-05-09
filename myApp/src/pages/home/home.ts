@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Contacts } from 'ionic-native';
+import { Contacts } from '@ionic-native/contacts';
 import { NavController, NavParams } from 'ionic-angular';
 import { RegisterPage } from '../register/register';
 import { LoginPage } from '../login/login';
@@ -8,8 +8,9 @@ import { PlacesPage } from '../places/places';
 import { AddContactPage } from '../add-contact/add-contact';
 import { LocatePage } from '../locate/locate';
 import { UserService, AuthService } from '../../app/services';
-
-import { AngularFire } from 'angularfire2';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 
 declare var google;
 
@@ -26,11 +27,11 @@ export class HomePage {
 	constructor(
 		public navCtrl: NavController,
 		private navParams: NavParams,
-		private af: AngularFire,
+		private afAuth: AngularFireAuth,
 		private userService: UserService
 	) {
 
-		this.af.auth.subscribe(auth => {
+		this.afAuth.authState.subscribe(auth => {
 			console.log(auth)
 			if (auth)
 				this.navCtrl.setRoot(PlacesPage);

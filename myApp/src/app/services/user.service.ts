@@ -1,15 +1,23 @@
 import { Injectable } from '@angular/core';
 
-import { AngularFire, FirebaseObjectObservable, FirebaseAuthState } from 'angularfire2';
-
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
+import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
+import { environment } from '../environments/environment';
 import { UserProfile } from '../shared/user.model';
+
+import * as firebase from 'firebase';
+import 'firebase/auth';
 
 @Injectable()
 export class UserService {
 
     myprofile: FirebaseObjectObservable<any>;
-    userData: FirebaseAuthState;
-    constructor(private af: AngularFire) {
+    userData: any;
+    constructor(
+        private db: AngularFireDatabase,
+        private afAuth: AngularFireAuth
+    ) {
         this.userData = null;
     }
 
@@ -17,15 +25,15 @@ export class UserService {
         return this.userData;
     }
 
-    setUserData(userData: FirebaseAuthState) {
+    setUserData(userData: any) {
         this.userData = userData;
     }
 
     getProfil() {
-        return this.myprofile = this.af.database.object('profil/' + this.getUserData().uid);
+        return this.myprofile = this.db.object('profil/' + this.userData.uid);
     }
 
     updateMyProfile(userProfile: UserProfile) {
-        return this.af.database.object('profil/' + this.getUserData().uid).set(userProfile);
+        return this.db.object('profil/' + this.getUserData().uid).set(userProfile);
     }
 }

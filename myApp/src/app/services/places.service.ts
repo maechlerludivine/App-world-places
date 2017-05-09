@@ -3,7 +3,7 @@ import { Http, Headers, Response, RequestOptionsArgs, RequestOptions } from '@an
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
-import { Geolocation } from 'ionic-native';
+import { Geolocation } from '@ionic-native/geolocation';
 
 const URLSearch = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=";
 const ENDURLSearch = '&radius=2500&types=bar|restaurant|food&key=AIzaSyATE_DqMHFKC-u-uV1INPrEcHVW6y8k2Aw';

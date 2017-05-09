@@ -28,13 +28,14 @@ export class ResetPasswordPage {
 
   submit(): void {
     if (this.resetPasswordForm.valid) {
-      this.authService.resetPassword(this.email.value).subscribe(registerData => {
+      this.authService.resetPassword(this.email.value).then(registerData => {
         this.navCtrl.setRoot(MessageResetPasswordPage, { messagePassword: true });
       }, registerError => {
         console.log(registerError);
-        if (registerError.code === 'auth/user-not-found') {
-          alert(registerError.message);
-        }
+        //TODO CHECK ERREUR
+        // if (registerError.code === 'auth/user-not-found') {
+        //   alert(registerError.message);
+        // }
       });
     }
   }

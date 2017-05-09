@@ -5,7 +5,7 @@ import { LoginPage } from '../login/login';
 import { HomePage } from '../home/home';
 import { NgForm } from '@angular/forms';
 
-import { AngularFireModule, AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
+import { AngularFireModule } from 'angularfire2';
 
 import { UserCredentials, UserProfile } from '../../app/shared';
 
@@ -49,7 +49,7 @@ export class RegisterPage {
 		}))
 	}
 
-	LoginPage() {
+	login() {
 		this.navCtrl.push(LoginPage);
 	}	
 }

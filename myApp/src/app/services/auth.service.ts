@@ -1,7 +1,11 @@
 import { Injectable, EventEmitter, Inject } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import { AngularFireModule, AuthProviders, AuthMethods, AngularFire, FirebaseAuthState, FirebaseApp } from 'angularfire2';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
+import { environment } from '../environments/environment';
+import * as firebase from 'firebase/app';
 import 'rxjs/add/operator/map';
 
 import { UserCredentials } from '../shared/user.model';
@@ -10,50 +14,29 @@ import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/fo
 @Injectable()
 export class AuthService {
   currentUser: UserCredentials;
-  private authState: FirebaseAuthState;
-  public onAuth: EventEmitter<FirebaseAuthState> = new EventEmitter();
+  private authState: Observable<firebase.User>;
   public firebase: any;
 
 
   constructor(
-    private af: AngularFire, 
-    @Inject(FirebaseApp) firebase: any
+    private afAuth: AngularFireAuth,
   ) {
     this.firebase = firebase;
-    // this.af.auth.subscribe((state: FirebaseAuthState) => {
-    //   console.log("state > ", state)
-    //   this.authState = state;
-    //   this.onAuth.emit(state);
-    // });
   }
 
   create(createUserCredentials: UserCredentials) {
-    return this.af.auth.createUser({
-      email: createUserCredentials.email,
-      password: createUserCredentials.password,
-    });
+    return this.afAuth.auth.createUserWithEmailAndPassword(createUserCredentials.email, createUserCredentials.password);
   }
 
   login(credentials: UserCredentials) {
-    return this.af.auth.login({
-      email: credentials.email,
-      password: credentials.password,
-    });
+    return this.afAuth.auth.signInWithEmailAndPassword(credentials.email, credentials.password);
   }
 
   logout(credentials: UserCredentials) {
-    return this.af.auth.logout();
+    return this.afAuth.auth.signOut();
   }
 
   resetPassword(email: string) {
-    return Observable.create(observer => {
-      this.firebase.auth().sendPasswordResetEmail(email)
-        .then((success) => {
-          observer.next(success);
-        })
-        .catch((error) => {
-          observer.error(error);
-        });
-    });
+    return this.afAuth.auth.sendPasswordResetEmail(email);
   }
 }
