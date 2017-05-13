@@ -7,6 +7,7 @@ import { ResetPasswordPage } from '../reset-password/reset-password';
 import { PlacesPage } from '../places/places';
 import { AddContactPage } from '../add-contact/add-contact';
 import { LocatePage } from '../locate/locate';
+import { FavoritesPage } from '../favorites/favorites';
 import { UserService, AuthService } from '../../app/services';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
@@ -33,13 +34,10 @@ export class HomePage {
 
 		this.afAuth.authState.subscribe(auth => {
 			if (auth) {
-				this.navCtrl.setRoot(PlacesPage);
+				this.navCtrl.setRoot(FavoritesPage);
 				this.userService.setUserData(auth);
 				console.log("User is logged in !");
-			} else {
-				this.navCtrl.setRoot(LoginPage);
 			}
-
 		});
 
 	}

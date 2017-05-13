@@ -18,28 +18,36 @@ import { Place } from '../../app/shared/place.model';
   providers: [PlacesService]
 })
 export class DetailsPlacePage {
-  placeid:string;
   place: Place;
 
   constructor(
     public navCtrl: NavController,
     private placesService: PlacesService,
+    private favoritesService: FavoritesService,
     private authService: AuthService,
     public navParams: NavParams
   ) {
     
-    this.placeid = this.navParams.get('item');
-    this.getPlacesDetails(this.placeid);
+    let placeid = this.navParams.get('item');
+    this.getPlacesDetails(placeid);
   }
 
   getPlacesDetails(placeid) {
     this.placesService.getPlacesDetails(placeid).subscribe(res => {
       console.log("res >", res)
       this.place = res.result;
+      
     });
   }
 
-  updateMyFavorites(placeId: string) {
+  updateMyFavorites() {
+    let obj = {
+      id: this.place.id,
+      name: this.place.name,
+      photo: this.place.photos
+    }
+    this.favoritesService.updateMyFavorites(obj);
     this.navCtrl.push(FavoritesPage);
   }
 }
+

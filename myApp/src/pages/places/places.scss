@@ -12,24 +12,30 @@
     font-family: "Raleway";
 
     .address {
-        color:#d1d1d1;
+        color:#dd352e;
         width:80%;
         display: inline-block;
         padding-left:40px;
         font-size:0.9em;
     }
 
+    .picture { 
+        width: 30px;
+        display: inline-block;
+        transform: translateY(20px);
+    }
+
     .name {
         display: inline-block;
         width:80%;
         padding-left:10px;
-        color:#008080;
+        color:#999;
     }
 
     .locate {
         display: inline-block;
         font-size:2em;
-        color:#d1d1d1;
+        color:#444;
         vertical-align: middle;
     }
 }
@@ -37,7 +43,7 @@
 button {
     
     &.disconnect-btn {
-        background-color: #008080;
+        background-color: #dd352e;
         color: #fff;
         width: 50px;
         height: 50px;
@@ -51,7 +57,7 @@ button {
     }
 
     &.profile-btn {
-        background-color: #444;
+        background-color: #d1d1d1;
         color: #fff;
         width: 50px;
         height: 50px;

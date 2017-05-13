@@ -1,5 +1,8 @@
 <ion-header>
-	<ion-navbar color="transparent">
+	<ion-navbar color="transparent">    
+	<button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
 		<div class="title-bis">Lieux à proximité</div>
 	</ion-navbar>
 </ion-header>
@@ -10,7 +13,7 @@
 
 	<div class="listPlaces" *ngFor="let item of places">
 		<div class="place" (click)="getDetailsPlace(item.place_id)">
-			<ion-icon name="locate" class="locate"></ion-icon>
+			<div class="picture"><img src="../../assets/img/pin.png" alt="" width="50"></div>
 			<div class="name">
 				<h6>{{ item.name }}</h6>
 			</div>

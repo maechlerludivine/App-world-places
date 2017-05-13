@@ -18,14 +18,19 @@ import { UserCredentials, UserProfile, Favorites } from '../../app/shared';
 
 export class FavoritesPage {
 
+	myFavorites;
 	constructor(
 		public navCtrl: NavController,
 		private userService: UserService,
-        public favoritesService: FavoritesService
-        ) {
-	}
+		public favoritesService: FavoritesService
+	) {
+		this.myFavorites = [];
+		this.favoritesService.getFavorites().subscribe(val => {this.myFavorites = val;
+		console.log(this.myFavorites);
 
-	favorites() {
-		return this.favoritesService.getFavorites();
-	}	
+		// for (const favorites in this.myFavorites) {
+		// 	this.myFavorites.i = 
+		// }   
+	});
+	}
 }

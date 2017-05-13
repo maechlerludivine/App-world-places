@@ -3,6 +3,7 @@ import { Platform, NavController, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { Geolocation } from '@ionic-native/geolocation';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { MenuController } from 'ionic-angular';
 
 import { RegisterPage } from '../pages/register/register';
 import { LoginPage } from '../pages/login/login';
@@ -64,7 +65,7 @@ export class MyApp {
 		private statusBar: StatusBar,
 		private splashScreen: SplashScreen
 	) {
-		this.rootPage = SlidesPage;
+		this.rootPage = HomePage;
 		this.initializeApp();
 	}
 

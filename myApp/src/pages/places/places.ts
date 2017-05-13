@@ -8,6 +8,7 @@ import { DetailsPlacePage } from '../details-place/details-place';
 import { ProfilePage } from '../profile/profile';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Observable } from 'rxjs/Observable';
+import { MenuController } from 'ionic-angular';
 import 'rxjs/add/observable/of';
 
 import { AngularFireModule } from 'angularfire2';
@@ -27,7 +28,8 @@ export class PlacesPage implements OnInit {
     private placesService: PlacesService,
     private authService: AuthService,
     private geolocation: Geolocation,
-		public afAuth: AngularFireAuth
+		public afAuth: AngularFireAuth,
+    public menuCtrl: MenuController 
   ) {
 
   }
@@ -69,4 +71,13 @@ export class PlacesPage implements OnInit {
       item: id
     });
   }
+
+  // openMenu() {
+  //   this.menuCtrl.open();
+  //   this.afAuth.auth.signOut();
+  // }
+
+  // closeMenu() {
+  //   this.menuCtrl.close();
+  // }
 }

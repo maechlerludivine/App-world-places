@@ -5,7 +5,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 import { UserCredentials, UserProfile, Favorites } from '../../app/shared';
-import { UserService, AuthService } from '../../app/services';
+import { UserService, AuthService, FavoritesService} from '../../app/services';
 import { PlacesPage } from '../places/places';
 
 @Component({
@@ -21,14 +21,6 @@ export class ProfilePage {
     public navParams: NavParams,
     public afAuth: AngularFireAuth,
     private userService: UserService,
-
     ) {
-  }
-
-  getDataProfile() {
-			this.userService.getProfil().subscribe(data => {
-        console.log(this.user);
-        this.user = data;			
-    });
   }
 }

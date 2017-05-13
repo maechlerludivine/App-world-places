@@ -1,5 +1,5 @@
 .title-bis-login {
-	color:#008080;
+	color:#dd352e;
 	font-size:18px;
 	font-family: "Raleway";
 }
@@ -32,15 +32,16 @@
 		 }
 
 		.submit-btn {
-			background-color:#008080;
+			background-color:#dd352e;
 			color:#fff;
 			margin-top:50px;
 			box-shadow: none;
 			opacity: 1;
+			width: 100%;
 		}
 		.register-btn {
 			background-color:#fff;
-			color:#008080;
+			color:#dd352e;
 
 			&:hover {
 				background-color:none;

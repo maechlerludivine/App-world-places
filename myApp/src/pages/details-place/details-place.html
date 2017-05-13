@@ -5,6 +5,7 @@
 		</ion-title>
 	</ion-navbar>
 </ion-header>
+<ion-content >
 	<div class="listPlaces">
 		<div class="placeDetails" *ngIf="place">
 			<img [src]="'https://maps.googleapis.com/maps/api/place/photo?maxwidth=500&photo_reference=' + place.photos[0].photo_reference + '&key=AIzaSyATE_DqMHFKC-u-uV1INPrEcHVW6y8k2Aw'" alt="">
@@ -13,9 +14,9 @@
 			<div class="schedule">Horaires : {{ place.opening_hours?.weekday_text }}</div>
 			<div class="phoneNumber">Téléphone : {{ place.formatted_phone_number }}</div>
 			<div class="rating">Note : {{ place.rating }}</div>
-			<div class="comment">
-				<div class="authorName">{{ place.reviews[0].author_name }}</div>
-				<p> {{ place.reviews[0].text }}</p>
+			<div class="comment" *ngFor="let review of place.reviews">
+				<div class="authorName">{{ review.author_name }}</div>
+				<p id="text"> {{ review.text }} </p>
 				<span class="time">{{ place.reviews[0].relative_time_description }}</span><br>
 				<span class="reviewRating">Note : {{ place.reviews[0].rating }}</span>
 			</div>
@@ -23,3 +24,4 @@
 	</div>
 
       <button class="submit-btn" block type="submit" (click)="updateMyFavorites()">J'enregistre ce bon plan !</button>
+</ion-content>

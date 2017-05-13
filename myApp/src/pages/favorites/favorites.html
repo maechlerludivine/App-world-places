@@ -1,4 +1,4 @@
-<ion-header >
+<ion-header>
   <ion-navbar color="transparent">
     <ion-title class="title-header">
        <div class="title">Mes bons plans</div>
@@ -7,7 +7,8 @@
 </ion-header>
 <ion-content class="favorites">
 
-<div *ngFor="let item of favorites() | async">
-    {{ item }}
+<div *ngFor="let item of myFavorites">
+    {{ item.name }}
+		<img [src]="'https://maps.googleapis.com/maps/api/place/photo?maxwidth=500&photo_reference=' + item.photo[0].photo_reference + '&key=AIzaSyATE_DqMHFKC-u-uV1INPrEcHVW6y8k2Aw'" alt="">
 </div>
 </ion-content>
