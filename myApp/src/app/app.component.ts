@@ -56,6 +56,7 @@ export class MyApp {
 		{ title: 'Profile', component: ProfilePage}
 	];
 
+ 	pages: Array<{title: string, component: any}>;
 
 	constructor(
 		public afAuth: AngularFireAuth,
@@ -77,4 +78,9 @@ export class MyApp {
 			this.splashScreen.show();
 		});
 	}
+
+  openPage() {
+    this.nav.setRoot(HomePage);
+    this.afAuth.auth.signOut();
+  }
 }

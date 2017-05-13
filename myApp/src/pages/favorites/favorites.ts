@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { AuthService, UserService, FavoritesService } from '../../app/services';
+import { AuthService, UserService, FavoritesService, PlacesService } from '../../app/services';
 import { LoginPage } from '../login/login';
+import { PlacesPage } from '../places/places';
 import { HomePage } from '../home/home';
 import { NgForm } from '@angular/forms';
 import { AngularFireModule } from 'angularfire2';
@@ -19,18 +20,20 @@ import { UserCredentials, UserProfile, Favorites } from '../../app/shared';
 export class FavoritesPage {
 
 	myFavorites;
+	places = [];
 	constructor(
 		public navCtrl: NavController,
 		private userService: UserService,
-		public favoritesService: FavoritesService
+		public favoritesService: FavoritesService,
+		public placesService: PlacesService
 	) {
 		this.myFavorites = [];
 		this.favoritesService.getFavorites().subscribe(val => {this.myFavorites = val;
 		console.log(this.myFavorites);
-
-		// for (const favorites in this.myFavorites) {
-		// 	this.myFavorites.i = 
-		// }   
 	});
+	}
+
+	goToPlaces() {
+		this.navCtrl.push(PlacesPage);
 	}
 }

@@ -44,7 +44,8 @@ export class DetailsPlacePage {
     let obj = {
       id: this.place.id,
       name: this.place.name,
-      photo: this.place.photos
+      photo: this.place.photos,
+      address : this.place.formatted_address
     }
     this.favoritesService.updateMyFavorites(obj);
     this.navCtrl.push(FavoritesPage);

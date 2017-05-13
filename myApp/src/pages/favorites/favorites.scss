@@ -1,0 +1,52 @@
+.title-favorites {
+    color: #d1d1dd;
+    font-weight: 400;
+}
+
+.favorites-element {
+    display: block;
+    font-family: 'raleway';
+    height: auto;
+
+    .name {
+        font-family: 'raleway';
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        height: 70px;
+        font-weight: 600;
+        padding-left: 10px;
+        line-height: 3;
+        transform: translateY(-5px);
+        margin-top: -69px;
+    }
+
+    .address {
+        font-family: 'raleway';
+        color: #fff;
+        height: 70px;
+        font-weight: 200;
+        padding-left: 10px;
+        line-height: 3;
+        font-size: 11px;
+        transform: translateY(-5px);
+        margin-top: -45px;        
+    }
+}
+
+
+button {
+    
+    &.places-btn {
+        background-color: #dd352e;
+        color: #fff;
+        width: 50px;
+        height: 50px;
+        border-radius: 50px;
+        z-index: 1000;
+        position: fixed;
+        right: 37px;
+        bottom: 30px;
+        font-size: 1.2em;
+        font-family: "Raleway";
+    }
+}

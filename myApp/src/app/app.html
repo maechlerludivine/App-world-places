@@ -1,13 +1,7 @@
-
-
 <ion-menu [content]="mycontent">
-
     <ion-content>
         <ion-list>
-             <button ion-item menuClose (click)="openPage(ProfilePage)">
-                Profil
-            </button>
-            <button ion-item menuClose (click)="openPage(HomePage)">
+            <button ion-item menuToggle (click)="openPage(HomePage)">
                 Déconnexion
             </button>
         </ion-list>
@@ -15,4 +9,4 @@
 
 </ion-menu>
 
-<ion-nav [root]="rootPage" #mycontent></ion-nav>
+<ion-nav [root]="rootPage" swipe-back-enabled="false" #mycontent></ion-nav>

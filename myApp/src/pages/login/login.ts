@@ -6,6 +6,7 @@ import { ResetPasswordPage } from '../reset-password/reset-password';
 import { HomePage } from '../home/home';
 import { LocatePage } from '../locate/locate';
 import { PlacesPage } from '../places/places';
+import { FavoritesPage } from '../favorites/favorites';
 import { UserService, AuthService } from '../../app/services';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
@@ -21,7 +22,7 @@ export class LoginPage {
 	loginCredentials = { email: '', password: '' };
 	email: AbstractControl;
 	password: AbstractControl;
-	error: any;
+	error: string;
 	submitted = false;
 
 	constructor(
@@ -36,10 +37,35 @@ export class LoginPage {
 			console.log("res > ", res)
 			this.userService.setUserData(res);
 			this.userService.getProfil().subscribe(data => {
-				// this.navCtrl.setRoot(LocatePage);
+				this.navCtrl.setRoot(FavoritesPage);
 			});
 		})
+
+        this.error = "";
+        if (this.loginCredentials.email == '' || this.loginCredentials.password == '') {
+            this.error = "Veuillez saisir tous les champs";
+            return;
+        }
+
+        this.authService.login(this.loginCredentials)
+            .then(() => {
+                this.navCtrl.setRoot(FavoritesPage);
+            },
+            (err) => {
+                console.log(err);
+                if (err['code'] == "auth/user-not-found") {
+                    this.error = "User inconnu";
+                } else if (err['code'] == "auth/invalid-email") {
+                    this.error = "Email invalide"
+                } else if (err['code'] == "auth/operation-not-allowed") {
+                    this.error = "Error"
+                } else if (err['code'] == "auth/wrong-password") {
+                    this.error = "Mauvais mot de passe"
+                }
+            });
 	}
+
+
 
 	ResetPasswordPage() {
 		this.navCtrl.push(ResetPasswordPage);

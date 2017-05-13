@@ -1,6 +1,5 @@
 .title-bis {
     color:#d1d1d1;
-    text-align: center;
     font-size: 18px;
     font-family: "Raleway";
 }
@@ -52,21 +51,21 @@ button {
         position: fixed;
         right: 37px;
         bottom: 30px;
-        font-size: 1.2em;
+        font-size: 1.4em;
         font-family: "Raleway";
     }
 
     &.profile-btn {
-        background-color: #d1d1d1;
+        background-color: #444;
         color: #fff;
-        width: 50px;
-        height: 50px;
+        width: 35px;
+        height: 35px;
         border-radius: 50px;
         z-index: 1000;
         position: fixed;
-        left: 10px;
-        bottom: 30px;
-        font-size: 1.2em;
+        right: 45px;
+        bottom: 90px;
+        font-size: 1em;
         font-family: "Raleway";
     }
 }

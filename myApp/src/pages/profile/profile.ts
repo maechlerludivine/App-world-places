@@ -13,7 +13,8 @@ import { PlacesPage } from '../places/places';
   templateUrl: 'profile.html'
 })
 export class ProfilePage {
-    user:any;
+    userData:any;
+    userName: string;
 
   constructor(
     public navCtrl: NavController,
@@ -22,5 +23,12 @@ export class ProfilePage {
     public afAuth: AngularFireAuth,
     private userService: UserService,
     ) {
+  }
+      getProfileData() {
+        this.userService.getProfil().subscribe(data => {
+        this.userData = data;
+        this.userData = this.userData.name;
+        console.log(this.userData)
+      })
   }
 }

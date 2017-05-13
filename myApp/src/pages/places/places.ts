@@ -5,6 +5,7 @@ import { RegisterPage } from '../register/register';
 import { LoginPage } from '../login/login';
 import { HomePage } from '../home/home';
 import { DetailsPlacePage } from '../details-place/details-place';
+import { FavoritesPage } from '../favorites/favorites';
 import { ProfilePage } from '../profile/profile';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Observable } from 'rxjs/Observable';
@@ -22,6 +23,8 @@ import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 })
 export class PlacesPage implements OnInit {
   places = [];
+  userData: any;
+  userName: string;
 
   constructor(
     public navCtrl: NavController,
@@ -29,7 +32,8 @@ export class PlacesPage implements OnInit {
     private authService: AuthService,
     private geolocation: Geolocation,
 		public afAuth: AngularFireAuth,
-    public menuCtrl: MenuController 
+    public menuCtrl: MenuController,
+    private userService: UserService,
   ) {
 
   }
@@ -58,26 +62,20 @@ export class PlacesPage implements OnInit {
 
   logout() {
       this.afAuth.auth.signOut();
-      this.navCtrl.setRoot(LoginPage);
+      this.navCtrl.setRoot(HomePage);
   }
 
   goToProfile() {
       this.navCtrl.push(ProfilePage);
   }
 
+  goToFavorites() {
+      this.navCtrl.push(FavoritesPage);
+  }
 
   getDetailsPlace(id: string) {
     this.navCtrl.push(DetailsPlacePage, {
       item: id
     });
   }
-
-  // openMenu() {
-  //   this.menuCtrl.open();
-  //   this.afAuth.auth.signOut();
-  // }
-
-  // closeMenu() {
-  //   this.menuCtrl.close();
-  // }
 }

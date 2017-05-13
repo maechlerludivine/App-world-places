@@ -35,7 +35,6 @@ const myFirebaseConfig = {
     apiKey: "AIzaSyATE_DqMHFKC-u-uV1INPrEcHVW6y8k2Aw",
     authDomain: "test-4cff0.firebaseapp.com",
     databaseURL: "https://test-4cff0.firebaseio.com",
-    projectId: "test-4cff0",
     storageBucket: "test-4cff0.appspot.com",
     messagingSenderId: "476274743436"
 };
