@@ -4,7 +4,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
-import { UserCredentials, UserProfile, Favorites } from '../../app/shared';
+import { UserCredentials, UserProfile, Favorites, UserData } from '../../app/shared';
 import { UserService, AuthService, FavoritesService} from '../../app/services';
 import { PlacesPage } from '../places/places';
 
@@ -13,8 +13,9 @@ import { PlacesPage } from '../places/places';
   templateUrl: 'profile.html'
 })
 export class ProfilePage {
-    userData:any;
-    userName: string;
+    userData:UserData;
+    userLastName:string;
+    userFirstName: string;
 
   constructor(
     public navCtrl: NavController,
@@ -23,12 +24,16 @@ export class ProfilePage {
     public afAuth: AngularFireAuth,
     private userService: UserService,
     ) {
+
+    let placeid = this.navParams.get('item');
+    this.getProfileData();
   }
-      getProfileData() {
-        this.userService.getProfil().subscribe(data => {
-        this.userData = data;
-        this.userData = this.userData.name;
-        console.log(this.userData)
-      })
+
+    getProfileData() {
+      this.userService.getProfil().subscribe(data => {
+      this.userData = data;
+      this.userLastName = this.userData.lastname;
+      this.userFirstName = this.userData.firstname;
+      });
   }
 }

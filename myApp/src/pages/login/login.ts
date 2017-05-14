@@ -36,10 +36,8 @@ export class LoginPage {
 
 	login() {
 		this.authService.login(this.loginCredentials).then(res => {
-			console.log("res > ", res)
 			this.userService.setUserData(res);
 			this.userService.getProfil().subscribe(data => {
-				console.log(data)
 			});
 		})
 	}

@@ -6,6 +6,8 @@ import { HomePage } from '../home/home';
 import { NgForm } from '@angular/forms';
 
 import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 
 import { UserCredentials, UserProfile } from '../../app/shared';
 
@@ -44,6 +46,10 @@ export class RegisterPage {
 				firstname: this.form.firstname,
 				lastname: this.form.lastname
 			}
+			this.userService.setUserData(res);
+			console.log(res);
+			this.userService.getProfil().subscribe(data => {
+			});
 			// Update profile user
 			this.userService.updateMyProfile(userProfile).then(res => {
 			})

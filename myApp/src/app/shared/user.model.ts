@@ -18,3 +18,9 @@ export class Favorites {
     address:string;
     photo:Array<number>;
 }
+
+export class UserData {
+    lastname: string;
+    firstname: string;
+    uid:string;
+}

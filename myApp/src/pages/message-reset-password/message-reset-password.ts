@@ -20,9 +20,13 @@ export class MessageResetPasswordPage {
 		private navParams: NavParams
 	) { 
 
+		// 
+
 		this.messagePassword = this.navParams.get("messagePassword") || false;
 
   }
+
+  // Function for switch page
 
 	LoginPage() {
 		this.navCtrl.setRoot(LoginPage);

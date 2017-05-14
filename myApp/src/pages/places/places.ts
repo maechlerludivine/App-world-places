@@ -10,6 +10,7 @@ import { ProfilePage } from '../profile/profile';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Observable } from 'rxjs/Observable';
 import { MenuController } from 'ionic-angular';
+import { UserData } from '../../app/shared';
 import 'rxjs/add/observable/of';
 
 import { AngularFireModule } from 'angularfire2';
@@ -23,8 +24,9 @@ import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 })
 export class PlacesPage implements OnInit {
   places = [];
-  userData: any;
-  userName: string;
+  userData: UserData;
+  userLastName: string;
+  userFirstName:string;
 
   constructor(
     public navCtrl: NavController,
@@ -71,14 +73,15 @@ export class PlacesPage implements OnInit {
       this.navCtrl.setRoot(HomePage);
   }
 
-  goToProfile() {
-      this.navCtrl.push(ProfilePage);
-          console.log(this.userData.uid)
+  goToProfile(userData: UserData) {
+      this.navCtrl.push(ProfilePage, {
+        item:userData
+      });
   }
 
   goToFavorites() {
       this.navCtrl.push(FavoritesPage);
-  }0
+  }
 
   getDetailsPlace(id: string) {
     this.navCtrl.push(DetailsPlacePage, {

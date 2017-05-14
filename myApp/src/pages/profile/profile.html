@@ -6,6 +6,8 @@
 
 <ion-content class="profile-content" padding>
 	<div *ngIf="userData">
-		{{ userName | json}}
+
+		{{ userData.lastname }}
+		{{ userData.firstname }}
 	</div>
 </ion-content>

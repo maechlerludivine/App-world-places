@@ -30,7 +30,6 @@ export class FavoritesPage {
 	) {
 
 		// get data favorites with an observable
-		
 		this.myFavorites = [];
 		this.favoritesService.getFavorites().subscribe(val => {this.myFavorites = val;
 	});
