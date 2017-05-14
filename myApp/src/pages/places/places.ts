@@ -68,11 +68,6 @@ export class PlacesPage implements OnInit {
 
   // Functions for switch pages
 
-  logout() {
-      this.afAuth.auth.signOut();
-      this.navCtrl.setRoot(HomePage);
-  }
-
   goToProfile(userData: UserData) {
       this.navCtrl.push(ProfilePage, {
         item:userData

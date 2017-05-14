@@ -7,6 +7,7 @@ import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 import { UserCredentials, UserProfile, Favorites, UserData } from '../../app/shared';
 import { UserService, AuthService, FavoritesService} from '../../app/services';
 import { PlacesPage } from '../places/places';
+import { HomePage } from '../home/home';
 
 @Component({
   selector: 'page-profile',
@@ -35,5 +36,10 @@ export class ProfilePage {
       this.userLastName = this.userData.lastname;
       this.userFirstName = this.userData.firstname;
       });
+  }
+
+  logout() {
+      this.afAuth.auth.signOut();
+      this.navCtrl.setRoot(HomePage);
   }
 }

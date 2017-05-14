@@ -1,0 +1,28 @@
+.title-bis-profile {
+    color:#d1d1d1;
+    font-size: 18px;
+    font-family: "Raleway";
+    text-align: center;
+}
+
+.two-name {
+    font-family: "Raleway";
+
+}
+
+button {
+    &.disconnect-btn {
+        background-color: #dd352e;
+        color: #fff;
+        width: 50px;
+        height: 50px;
+        border-radius: 50px;
+        z-index: 1000;
+        position: fixed;
+        right: 37px;
+        bottom: 30px;
+        font-size: 1.4em;
+        font-family: "Raleway";
+    }
+
+}
