@@ -32,6 +32,8 @@ export class DetailsPlacePage {
     this.getPlacesDetails(placeid);
   }
 
+  // Get data for details place with observable
+
   getPlacesDetails(placeid) {
     this.placesService.getPlacesDetails(placeid).subscribe(res => {
       console.log("res >", res)
@@ -40,15 +42,17 @@ export class DetailsPlacePage {
     });
   }
 
+  // Update favorites list for each add the one favorite
+
   updateMyFavorites() {
     let obj = {
       id: this.place.id,
       name: this.place.name,
       photo: this.place.photos,
-      address : this.place.formatted_address
+      address: this.place.formatted_address
     }
     this.favoritesService.updateMyFavorites(obj);
-    this.navCtrl.push(FavoritesPage);
+    this.navCtrl.setRoot(FavoritesPage);
   }
 }
 

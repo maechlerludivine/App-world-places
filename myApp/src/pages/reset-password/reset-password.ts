@@ -19,6 +19,8 @@ export class ResetPasswordPage {
     private fb: FormBuilder,
     private authService: AuthService
     ) {
+
+      // reset password
     this.resetPasswordForm = this.fb.group({
       'email': ['', Validators.compose([Validators.required, Validators.pattern(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/)])]
     });
@@ -31,8 +33,6 @@ export class ResetPasswordPage {
       this.authService.resetPassword(this.email.value).then(registerData => {
         this.navCtrl.setRoot(MessageResetPasswordPage, { messagePassword: true });
       }, registerError => {
-        console.log(registerError);
-        //TODO CHECK ERREUR
         // if (registerError.code === 'auth/user-not-found') {
         //   alert(registerError.message);
         // }

@@ -32,40 +32,19 @@ export class LoginPage {
 		public afAuth: AngularFireAuth
 	) { }
 
+	// get data user profile authenticated and switch pas
+
 	login() {
 		this.authService.login(this.loginCredentials).then(res => {
 			console.log("res > ", res)
 			this.userService.setUserData(res);
 			this.userService.getProfil().subscribe(data => {
-				this.navCtrl.setRoot(FavoritesPage);
+				console.log(data)
 			});
 		})
-
-        this.error = "";
-        if (this.loginCredentials.email == '' || this.loginCredentials.password == '') {
-            this.error = "Veuillez saisir tous les champs";
-            return;
-        }
-
-        this.authService.login(this.loginCredentials)
-            .then(() => {
-                this.navCtrl.setRoot(FavoritesPage);
-            },
-            (err) => {
-                console.log(err);
-                if (err['code'] == "auth/user-not-found") {
-                    this.error = "User inconnu";
-                } else if (err['code'] == "auth/invalid-email") {
-                    this.error = "Email invalide"
-                } else if (err['code'] == "auth/operation-not-allowed") {
-                    this.error = "Error"
-                } else if (err['code'] == "auth/wrong-password") {
-                    this.error = "Mauvais mot de passe"
-                }
-            });
 	}
 
-
+	// Function for switch page
 
 	ResetPasswordPage() {
 		this.navCtrl.push(ResetPasswordPage);

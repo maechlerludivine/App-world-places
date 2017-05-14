@@ -32,8 +32,9 @@ export class RegisterPage {
 		}
 	}
 
+	// Defined credentials user for registration
+
 	register() {
-		console.log('this.registerForm > ', this.form);
 		let credentials: UserCredentials = {
 			email: this.form.email,
 			password: this.form.password
@@ -41,13 +42,15 @@ export class RegisterPage {
 		this.authService.create(credentials).then((res => {
 			let userProfile: UserProfile = {
 				firstname: this.form.firstname,
-				lastname: 'test'
+				lastname: this.form.lastname
 			}
-			
+			// Update profile user
 			this.userService.updateMyProfile(userProfile).then(res => {
 			})
 		}))
 	}
+
+	// Function for switch page
 
 	login() {
 		this.navCtrl.push(LoginPage);

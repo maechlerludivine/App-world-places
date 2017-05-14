@@ -24,17 +24,25 @@ export class AuthService {
     this.firebase = firebase;
   }
 
+  // Create user with email and password
+
   create(createUserCredentials: UserCredentials) {
     return this.afAuth.auth.createUserWithEmailAndPassword(createUserCredentials.email, createUserCredentials.password);
   }
 
+  // Login user with email and password
+
   login(credentials: UserCredentials) {
     return this.afAuth.auth.signInWithEmailAndPassword(credentials.email, credentials.password);
   }
+  
+  // Logout user
 
   logout(credentials: UserCredentials) {
     return this.afAuth.auth.signOut();
   }
+
+  // Reset password
 
   resetPassword(email: string) {
     return this.afAuth.auth.sendPasswordResetEmail(email);

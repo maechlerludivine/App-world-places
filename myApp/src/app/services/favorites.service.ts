@@ -21,9 +21,13 @@ export class FavoritesService {
     ) {
     }
 
+    // Add favorites in the database
+
     getFavorites(): FirebaseListObservable<string[]> {
         return this.db.list('favorites/' + this.userService.getUserData().uid);
     }
+
+    // Update the database
 
     updateMyFavorites(placeFavorite: any) {
         this.db.object('favorites/' + this.userService.getUserData().uid + '/' + placeFavorite.id).set(placeFavorite);

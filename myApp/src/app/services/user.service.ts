@@ -21,17 +21,24 @@ export class UserService {
         this.userData = null;
     }
 
+    // Get user data
+
     getUserData() {
         return this.userData;
     }
+
+    // Set user data
 
     setUserData(userData: any) {
         this.userData = userData;
     }
 
+    // Add user in database
+
     getProfil() {
         return this.myprofile = this.db.object('profil/' + this.userData.uid);
     }
+    
 
     updateMyProfile(userProfile: UserProfile) {
         return this.db.object('profil/' + this.getUserData().uid).set(userProfile);

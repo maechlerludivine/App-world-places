@@ -5,7 +5,8 @@
   <author email="maechler.ludivine@gmail.com" href="http://ionicframework.com/">Ludivine Maechler</author>
   <content src="index.html"/>
   <access origin="https://*.googleapis.com"/>
-  <allow-navigation href="http://ionic.local/*"/>
+  <allow-navigation href="http://ionic.local/*"/>  
+  <allow-intent href="*.firebaseio.com" />
   <allow-intent href="http://*/*"/>
   <allow-intent href="https://*/*"/>
   <allow-intent href="tel:*"/>

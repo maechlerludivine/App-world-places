@@ -18,12 +18,16 @@ export class PlacesService {
     private http: Http
   ) { }
 
+  // Request for get the list of places
+
   getPlacesList(latitude: number, longitude: number) {
     let headers = new Headers({ 'Content-Type': 'application/json', }); // ... Set content type to JSON
     let options = new RequestOptions({ headers: headers }); // Create a request option
     return this.http.get(URLSearch + latitude + ',' + longitude + ENDURLSearch)
       .map((res: Response) => res.json());
   }
+
+  // Request for get the detail of places
 
   getPlacesDetails(placeid: string) {
     let headers = new Headers({ 'Content-Type': 'application/json', }); // ... Set content type to JSON

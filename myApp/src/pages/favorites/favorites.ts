@@ -21,17 +21,22 @@ export class FavoritesPage {
 
 	myFavorites;
 	places = [];
+
 	constructor(
 		public navCtrl: NavController,
 		private userService: UserService,
 		public favoritesService: FavoritesService,
 		public placesService: PlacesService
 	) {
+
+		// get data favorites with an observable
+		
 		this.myFavorites = [];
 		this.favoritesService.getFavorites().subscribe(val => {this.myFavorites = val;
-		console.log(this.myFavorites);
 	});
-	}
+}
+
+	// Action push for switch page
 
 	goToPlaces() {
 		this.navCtrl.push(PlacesPage);

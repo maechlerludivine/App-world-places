@@ -38,6 +38,8 @@ export class PlacesPage implements OnInit {
 
   }
 
+  // Get user's current position
+
   ngOnInit() {
     this.geolocation.getCurrentPosition().then(pos => {
       console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
@@ -52,6 +54,8 @@ export class PlacesPage implements OnInit {
     watch.unsubscribe();
   }
 
+  // Get data api Google Places
+
   getPlacesList(pos) {
     console.log("coords > ", pos)
     this.placesService.getPlacesList(pos.coords.latitude, pos.coords.longitude).subscribe(res => {
@@ -60,6 +64,8 @@ export class PlacesPage implements OnInit {
     });
   }
 
+  // Functions for switch pages
+
   logout() {
       this.afAuth.auth.signOut();
       this.navCtrl.setRoot(HomePage);
@@ -67,11 +73,12 @@ export class PlacesPage implements OnInit {
 
   goToProfile() {
       this.navCtrl.push(ProfilePage);
+          console.log(this.userData.uid)
   }
 
   goToFavorites() {
       this.navCtrl.push(FavoritesPage);
-  }
+  }0
 
   getDetailsPlace(id: string) {
     this.navCtrl.push(DetailsPlacePage, {

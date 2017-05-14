@@ -31,6 +31,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import * as firebase from 'firebase/app';
 
+// Firebase configuration 
+
 const myFirebaseConfig = {
     apiKey: "AIzaSyATE_DqMHFKC-u-uV1INPrEcHVW6y8k2Aw",
     authDomain: "test-4cff0.firebaseapp.com",

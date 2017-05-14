@@ -5,7 +5,7 @@
 		</ion-title>
 	</ion-navbar>
 </ion-header>
-<ion-content >
+<ion-content>
 	<div class="listPlaces">
 		<div class="placeDetails" *ngIf="place">
 			<img [src]="'https://maps.googleapis.com/maps/api/place/photo?maxwidth=500&photo_reference=' + place.photos[0].photo_reference + '&key=AIzaSyATE_DqMHFKC-u-uV1INPrEcHVW6y8k2Aw'" alt="">
@@ -23,5 +23,5 @@
 		</div>
 	</div>
 
-      <button class="submit-btn" block type="submit" (click)="updateMyFavorites()">J'enregistre ce bon plan !</button>
+	<button class="submit-btn" block type="submit" (click)="updateMyFavorites()">J'enregistre ce bon plan !</button>
 </ion-content>

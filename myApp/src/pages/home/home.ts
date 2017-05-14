@@ -32,15 +32,21 @@ export class HomePage {
 		private userService: UserService
 	) {
 
+		// Get data of user authenticated and switch page
+
 		this.afAuth.authState.subscribe(auth => {
 			if (auth) {
 				this.navCtrl.setRoot(FavoritesPage);
 				this.userService.setUserData(auth);
 				console.log("User is logged in !");
+				console.log(auth)
 			}
 		});
 
 	}
+
+	// Action for switch page
+
 	RegisterPage() {
 		this.navCtrl.push(RegisterPage);
 	}
