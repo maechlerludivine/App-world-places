@@ -68,12 +68,6 @@ export class PlacesPage implements OnInit {
 
   // Functions for switch pages
 
-  goToProfile(userData: UserData) {
-      this.navCtrl.push(ProfilePage, {
-        item:userData
-      });
-  }
-
   goToFavorites() {
       this.navCtrl.push(FavoritesPage);
   }

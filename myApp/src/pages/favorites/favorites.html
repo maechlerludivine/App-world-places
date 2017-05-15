@@ -6,6 +6,9 @@
   </ion-navbar>
 </ion-header>
 <ion-content class="favorites">
+
+  	  <button class="profile-btn" block type="button" (click)="goToProfile()"><ion-icon name="person"></ion-icon></button>
+
 	    <button class="places-btn" block type="button" (click)="goToPlaces()"><ion-icon name="locate"></ion-icon></button>
 
 <div class="favorites-element" *ngFor="let item of myFavorites">

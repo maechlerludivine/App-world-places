@@ -4,12 +4,13 @@ import { AuthService, UserService, FavoritesService, PlacesService } from '../..
 import { LoginPage } from '../login/login';
 import { PlacesPage } from '../places/places';
 import { HomePage } from '../home/home';
+import { ProfilePage } from '../profile/profile';
 import { NgForm } from '@angular/forms';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
-import { UserCredentials, UserProfile, Favorites } from '../../app/shared';
+import { UserCredentials, UserProfile, Favorites, UserData } from '../../app/shared';
 
 
 @Component({
@@ -21,6 +22,7 @@ export class FavoritesPage {
 
 	myFavorites;
 	places = [];
+	userData: UserData;
 
 	constructor(
 		public navCtrl: NavController,
@@ -36,6 +38,12 @@ export class FavoritesPage {
 }
 
 	// Action push for switch page
+
+  goToProfile(userData: UserData) {
+      this.navCtrl.push(ProfilePage, {
+        item:userData
+      });
+  }
 
 	goToPlaces() {
 		this.navCtrl.push(PlacesPage);

@@ -50,4 +50,18 @@ button {
         font-size: 1.2em;
         font-family: "Raleway";
     }
+    
+    &.profile-btn {
+        background-color: #444;
+        color: #fff;
+        width: 37px;
+        height: 37px;
+        border-radius: 50px;
+        z-index: 1000;
+        position: fixed;
+        right: 44px;
+        bottom: 92px;
+        font-size: 1.2em;
+        font-family: "Raleway";
+    }
 }

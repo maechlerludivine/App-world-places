@@ -4,7 +4,6 @@
 	</ion-navbar>
 </ion-header>
 <ion-content padding class="places-content">
-	    <button class="profile-btn" block type="button" (click)="goToProfile()"><ion-icon name="person"></ion-icon></button>
 
 	<div class="listPlaces" *ngFor="let item of places">
 		<div class="place" (click)="getDetailsPlace(item.place_id)">
