@@ -29,7 +29,7 @@ import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable 
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 import { TabsPage } from '../pages/tabs/tabs';
 
-import * as firebase from 'firebase/app';
+// import * as firebase from 'firebase/app';
 
 // Firebase configuration 
 

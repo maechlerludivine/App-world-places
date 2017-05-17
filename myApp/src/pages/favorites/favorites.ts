@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { AuthService, UserService, FavoritesService, PlacesService } from '../../app/services';
 import { LoginPage } from '../login/login';
 import { PlacesPage } from '../places/places';
@@ -23,19 +23,33 @@ export class FavoritesPage {
 	myFavorites;
 	places = [];
 	userData: UserData;
+    userLastName:string;
+    userFirstName: string;
 
 	constructor(
 		public navCtrl: NavController,
 		private userService: UserService,
 		public favoritesService: FavoritesService,
-		public placesService: PlacesService
+		public placesService: PlacesService,
+		public afAuth: AngularFireAuth,
+    	public navParams: NavParams
 	) {
 
 		// get data favorites with an observable
 		this.myFavorites = [];
 		this.favoritesService.getFavorites().subscribe(val => {this.myFavorites = val;
+		this.getProfileData();
 	});
 }
+
+
+    getProfileData() {
+      this.userService.getProfil().subscribe(data => {
+      this.userData = data;
+      this.userLastName = this.userData.lastname;
+      this.userFirstName = this.userData.firstname;
+      });
+  }
 
 	// Action push for switch page
 
@@ -48,4 +62,9 @@ export class FavoritesPage {
 	goToPlaces() {
 		this.navCtrl.push(PlacesPage);
 	}
+
+  logout() {
+      this.afAuth.auth.signOut();
+      this.navCtrl.setRoot(HomePage);
+  }
 }

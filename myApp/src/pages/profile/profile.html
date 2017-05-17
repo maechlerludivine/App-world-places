@@ -6,8 +6,6 @@
 
 <ion-content class="profile-content" padding>
 	<div class="two-name" *ngIf="userData">
-		Bienvenue {{ userData.lastname }}{{ userData.firstname }}
-
-		<button class="disconnect-btn" block type="button" (click)="logout()"><ion-icon name="exit"></ion-icon></button>
+		<div class="first">Bonjour</div> <br><div class="name">{{ userData.lastname }} {{ userData.firstname }}</div>
 	</div>
 </ion-content>

@@ -24,9 +24,6 @@ import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 })
 export class PlacesPage implements OnInit {
   places = [];
-  userData: UserData;
-  userLastName: string;
-  userFirstName:string;
 
   constructor(
     public navCtrl: NavController,

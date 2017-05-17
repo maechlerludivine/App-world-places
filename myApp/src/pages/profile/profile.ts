@@ -27,19 +27,5 @@ export class ProfilePage {
     ) {
 
     let placeid = this.navParams.get('item');
-    this.getProfileData();
-  }
-
-    getProfileData() {
-      this.userService.getProfil().subscribe(data => {
-      this.userData = data;
-      this.userLastName = this.userData.lastname;
-      this.userFirstName = this.userData.firstname;
-      });
-  }
-
-  logout() {
-      this.afAuth.auth.signOut();
-      this.navCtrl.setRoot(HomePage);
   }
 }

@@ -1,67 +1,89 @@
 .title-favorites {
-    color: #d1d1dd;
-    font-weight: 400;
-    text-align: center;
+    color: #d1d1d1;
+    font-size: 18px;
+    font-family: "Raleway";
+    text-align:center;
 }
+
+.favorites {
+
+    .two-name {
+        margin: 0 auto!important;
+        position: fixed!important;
+        width: 100%!important;
+        z-index: 1!important;
+        background-color: #fff!important;
+        height: 100px!important;
+        padding: 20px!important;
+        
+        .first {
+            color:#444;
+            font-weight: 600;
+        }
+    }
 
 .favorites-element {
     display: block;
     font-family: 'raleway';
     height: auto;
+    position: relative;
+    top: 104px;
 
-    .name {
-        font-family: 'raleway';
-        background-color: rgba(0, 0, 0, 0.5);
-        color: #fff;
-        height: 70px;
-        font-weight: 600;
-        padding-left: 10px;
-        line-height: 3;
-        transform: translateY(-5px);
-        margin-top: -69px;
+        .name {
+            font-family: 'raleway';
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            height: 70px;
+            font-weight: 600;
+            padding-left: 10px;
+            line-height: 3;
+            transform: translateY(-5px);
+            margin-top: -69px;
+        }
+
+        .address {
+            font-family: 'raleway';
+            color: #fff;
+            height: 49px;
+            font-weight: 200;
+            padding-left: 10px;
+            line-height: 3;
+            font-size: 11px;
+            transform: translateY(-5px);
+            margin-top: -45px;        
+        }
     }
 
-    .address {
-        font-family: 'raleway';
-        color: #fff;
-        height: 70px;
-        font-weight: 200;
-        padding-left: 10px;
-        line-height: 3;
-        font-size: 11px;
-        transform: translateY(-5px);
-        margin-top: -45px;        
-    }
-}
 
+    button {
+        
+        &.places-btn {
+            background-color: #dd352e;
+            color: #fff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50px;
+            z-index: 1000;
+            position: fixed;
+            right: 37px;
+            bottom: 30px;
+            font-size: 1.2em;
+            font-family: "Raleway";
+        }
+        
+        &.profile-btn {
+            background-color: #d1d1d1;
+            color: #fff;
+            width: 37px;
+            height: 37px;
+            border-radius: 50px;
+            z-index: 1000;
+            position: fixed;
+            right: 44px;
+            bottom: 92px;
+            font-size: 1.2em;
+            font-family: "Raleway";
+        }
+    }
 
-button {
-    
-    &.places-btn {
-        background-color: #dd352e;
-        color: #fff;
-        width: 50px;
-        height: 50px;
-        border-radius: 50px;
-        z-index: 1000;
-        position: fixed;
-        right: 37px;
-        bottom: 30px;
-        font-size: 1.2em;
-        font-family: "Raleway";
-    }
-    
-    &.profile-btn {
-        background-color: #444;
-        color: #fff;
-        width: 37px;
-        height: 37px;
-        border-radius: 50px;
-        z-index: 1000;
-        position: fixed;
-        right: 44px;
-        bottom: 92px;
-        font-size: 1.2em;
-        font-family: "Raleway";
-    }
 }

@@ -8,7 +8,7 @@
 <ion-content>
 	<div class="listPlaces">
 		<div class="placeDetails" *ngIf="place">
-			<img [src]="'https://maps.googleapis.com/maps/api/place/photo?maxwidth=500&photo_reference=' + place.photos[0].photo_reference + '&key=AIzaSyATE_DqMHFKC-u-uV1INPrEcHVW6y8k2Aw'" alt="">
+			<img [src]="'https://maps.googleapis.com/maps/api/place/photo?maxwidth=500&photo_reference=' + place.photos[0]?.photo_reference + '&key=AIzaSyATE_DqMHFKC-u-uV1INPrEcHVW6y8k2Aw'" alt="">
 			<h2>{{ place.name }}</h2>
 			<div class="addressViewDetails">{{ place.formatted_address }}</div>
 			<div class="schedule">Horaires : {{ place.opening_hours?.weekday_text }}</div>
@@ -23,5 +23,5 @@
 		</div>
 	</div>
 
-	<button class="submit-btn" block type="submit" (click)="updateMyFavorites()">J'enregistre ce bon plan !</button>
+	<button class="save-btn" block type="submit" (click)="updateMyFavorites()">J'enregistre ce bon plan !</button>
 </ion-content>

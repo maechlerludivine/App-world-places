@@ -4,7 +4,6 @@ import { AuthService, UserService } from '../../app/services';
 import { LoginPage } from '../login/login';
 import { HomePage } from '../home/home';
 import { NgForm } from '@angular/forms';
-
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
