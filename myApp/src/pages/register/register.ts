@@ -46,7 +46,6 @@ export class RegisterPage {
 				lastname: this.form.lastname
 			}
 			this.userService.setUserData(res);
-			console.log(res);
 			this.userService.getProfil().subscribe(data => {
 			});
 			// Update profile user

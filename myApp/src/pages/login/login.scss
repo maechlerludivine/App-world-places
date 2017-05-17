@@ -1,18 +1,20 @@
+@import "../../theme/vars";
+
 .title-bis-login {
-	color:#dd352e;
+	color:$alertred;
 	font-size:18px;
-	font-family: "Raleway";
+	font-family: $familyfont;
 }
 
 .login-content {
-	font-family: "Raleway";
+	font-family: $familyfont;
 
 
 	.form { 
 	 padding-top: 10rem;
 
 	 	.input {
-	 		border-bottom: 1px solid #d1d1d1;
+	 		border-bottom: 1px solid $graylight;
 	 	}
 
 	 	.text-input-md {
@@ -27,12 +29,12 @@
 			width: 100%;
 			margin-top: 20px;
 			padding: 10px;
-			background-color: #ffa500;
+			background-color:$orangey;
 			color: #fff;
 		 }
 
 		.submit-btn {
-			background-color:#dd352e;
+			background-color:$alertred;
 			color:#fff;
 			margin-top:50px;
 			box-shadow: none;
@@ -41,7 +43,7 @@
 		}
 		.register-btn {
 			background-color:#fff;
-			color:#dd352e;
+			color:$alertred;
 
 			&:hover {
 				background-color:none;

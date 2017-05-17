@@ -6,10 +6,6 @@
   </ion-navbar>
 </ion-header>
 <ion-content class="favorites">
-
-      <div class="two-name" *ngIf="userData">
-        <div class="first">Bienvenue</div> <br><div class="name">{{ userData.lastname }} {{ userData.firstname }}</div>
-      </div>
   	  <button class="profile-btn" block type="button" (click)="logout()"><ion-icon name="exit"></ion-icon></button>
 
 	    <button class="places-btn" block type="button" (click)="goToPlaces()"><ion-icon name="locate"></ion-icon></button>

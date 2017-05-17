@@ -1,18 +1,20 @@
+@import "../../theme/vars";
+
 .title-bis {
-    color: #d1d1d1;
-    font-size: 18px;
-    font-family: "Raleway";
+    color:$graylight;
+    font-size: $titlefontsize;
+    font-family: $familyfont;
     margin-left:50px;
 }
 
 .place {
     padding:10px 0;
-    border-bottom:1px solid #ccc;
+    border-bottom:1px solid $graylight;
     width:100%;
-    font-family: "Raleway";
+    font-family: $familyfont;
 
     .address {
-        color:#dd352e;
+        color:$alertred;
         width:80%;
         display: inline-block;
         padding-left:40px;
@@ -30,12 +32,5 @@
         width:80%;
         padding-left:10px;
         color:#999;
-    }
-
-    .locate {
-        display: inline-block;
-        font-size:2em;
-        color:#444;
-        vertical-align: middle;
     }
 }

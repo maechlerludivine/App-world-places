@@ -1,18 +1,20 @@
+ @import "../../theme/vars";
+
 .title-bis-register {
-	color:#d1d1d1;
-	font-size:18px;
+	color:$graylight;
+	font-size:$titlefontsize;
 	text-align: left;
-    font-family: "Raleway";
+    font-family: $familyfont;
 }
 
 .register-content {
-    font-family: "Raleway";
+    font-family: $familyfont;
 
 	.form { 
 	 padding-top: 10rem;
 
 	 	.input {
-	 		border-bottom: 1px solid #d1d1d1;
+	 		border-bottom: 1px solid $graylight;
 	 	}
 
 	 	.text-input-md {
@@ -23,7 +25,7 @@
 	 	}
 
 		.submit-btn {
-			background-color:#d1d1d1;
+			background-color:$graylight;
 			color:#fff;
 			margin-top:50px;
 			box-shadow: none;

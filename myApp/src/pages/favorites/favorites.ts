@@ -4,7 +4,6 @@ import { AuthService, UserService, FavoritesService, PlacesService } from '../..
 import { LoginPage } from '../login/login';
 import { PlacesPage } from '../places/places';
 import { HomePage } from '../home/home';
-import { ProfilePage } from '../profile/profile';
 import { NgForm } from '@angular/forms';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
@@ -22,9 +21,6 @@ export class FavoritesPage {
 
 	myFavorites;
 	places = [];
-	userData: UserData;
-    userLastName:string;
-    userFirstName: string;
 
 	constructor(
 		public navCtrl: NavController,
@@ -37,34 +33,21 @@ export class FavoritesPage {
 
 		// get data favorites with an observable
 		this.myFavorites = [];
-		this.favoritesService.getFavorites().subscribe(val => {this.myFavorites = val;
-		this.getProfileData();
-	});
-}
+		this.favoritesService.getFavorites().subscribe(val => {
+		this.myFavorites = val;
+		});
+	}
 
-
-    getProfileData() {
-      this.userService.getProfil().subscribe(data => {
-      this.userData = data;
-      this.userLastName = this.userData.lastname;
-      this.userFirstName = this.userData.firstname;
-      });
-  }
-
-	// Action push for switch page
-
-  goToProfile(userData: UserData) {
-      this.navCtrl.push(ProfilePage, {
-        item:userData
-      });
-  }
+	// Switch to places page
 
 	goToPlaces() {
 		this.navCtrl.push(PlacesPage);
 	}
 
-  logout() {
-      this.afAuth.auth.signOut();
-      this.navCtrl.setRoot(HomePage);
-  }
+	// Go to homepage
+		
+	logout() {
+		this.afAuth.auth.signOut();
+		this.navCtrl.setRoot(HomePage);
+	}
 }

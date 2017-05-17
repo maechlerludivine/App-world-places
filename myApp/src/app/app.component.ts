@@ -7,20 +7,16 @@ import { MenuController } from 'ionic-angular';
 
 import { RegisterPage } from '../pages/register/register';
 import { LoginPage } from '../pages/login/login';
-import { AddContactPage } from '../pages/add-contact/add-contact'
 import { PlacesPage } from '../pages/places/places';
 import { DetailsPlacePage } from '../pages/details-place/details-place';
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
-import { LocatePage } from '../pages/locate/locate';
 import { FavoritesPage } from '../pages/favorites/favorites';
-import { SlidesPage } from '../pages/slides/slides';
 import { PlacesService, FavoritesService } from './services';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
-import { ProfilePage } from '../pages/profile/profile';
 
 
 declare var google;
@@ -52,8 +48,6 @@ export class MyApp {
 		{ title: 'Places', component: PlacesPage },
 		{ title: 'DetailsPlace', component: DetailsPlacePage },
 		{ title: 'Favorites', component: FavoritesPage },
-		{ title : 'Slides', component: SlidesPage },
-		{ title: 'Profile', component: ProfilePage}
 	];
 
 	constructor(

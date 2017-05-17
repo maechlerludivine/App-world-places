@@ -5,8 +5,6 @@ import { RegisterPage } from '../register/register';
 import { LoginPage } from '../login/login';
 import { ResetPasswordPage } from '../reset-password/reset-password';
 import { PlacesPage } from '../places/places';
-import { AddContactPage } from '../add-contact/add-contact';
-import { LocatePage } from '../locate/locate';
 import { FavoritesPage } from '../favorites/favorites';
 import { UserService, AuthService } from '../../app/services';
 import { AngularFireModule } from 'angularfire2';
@@ -38,8 +36,6 @@ export class HomePage {
 			if (auth) {
 				this.navCtrl.setRoot(FavoritesPage);
 				this.userService.setUserData(auth);
-				console.log("User is logged in !");
-				console.log(auth)
 			}
 		});
 
@@ -47,11 +43,11 @@ export class HomePage {
 
 	// Action for switch page
 
-	RegisterPage() {
+	registerPage() {
 		this.navCtrl.push(RegisterPage);
 	}
 
-	LoginPage() {
+	loginPage() {
 		this.navCtrl.push(LoginPage);
 	}
 }

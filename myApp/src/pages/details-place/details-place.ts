@@ -36,7 +36,6 @@ export class DetailsPlacePage {
 
   getPlacesDetails(placeid) {
     this.placesService.getPlacesDetails(placeid).subscribe(res => {
-      console.log("res >", res)
       this.place = res.result;
       
     });

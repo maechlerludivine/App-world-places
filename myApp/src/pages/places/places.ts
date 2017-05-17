@@ -6,11 +6,9 @@ import { LoginPage } from '../login/login';
 import { HomePage } from '../home/home';
 import { DetailsPlacePage } from '../details-place/details-place';
 import { FavoritesPage } from '../favorites/favorites';
-import { ProfilePage } from '../profile/profile';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Observable } from 'rxjs/Observable';
 import { MenuController } from 'ionic-angular';
-import { UserData } from '../../app/shared';
 import 'rxjs/add/observable/of';
 
 import { AngularFireModule } from 'angularfire2';
@@ -41,12 +39,10 @@ export class PlacesPage implements OnInit {
 
   ngOnInit() {
     this.geolocation.getCurrentPosition().then(pos => {
-      console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
       this.getPlacesList(pos);
     });
 
     let watch = this.geolocation.watchPosition().subscribe(pos => {
-      console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
     });
 
     // to stop watching
@@ -56,9 +52,7 @@ export class PlacesPage implements OnInit {
   // Get data api Google Places
 
   getPlacesList(pos) {
-    console.log("coords > ", pos)
     this.placesService.getPlacesList(pos.coords.latitude, pos.coords.longitude).subscribe(res => {
-      console.log("res > ", res);
       this.places = res.results
     });
   }

@@ -4,14 +4,12 @@ import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/fo
 import { RegisterPage } from '../register/register';
 import { ResetPasswordPage } from '../reset-password/reset-password';
 import { HomePage } from '../home/home';
-import { LocatePage } from '../locate/locate';
 import { PlacesPage } from '../places/places';
 import { FavoritesPage } from '../favorites/favorites';
 import { UserService, AuthService } from '../../app/services';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
-import { environment } from '../environments/environment';
 
 @Component({
 	selector: 'app-login',
@@ -19,7 +17,11 @@ import { environment } from '../environments/environment';
 })
 export class LoginPage {
 
-	loginCredentials = { email: '', password: '' };
+	loginCredentials = {
+		email: '', 
+		password: '' 
+		
+	};
 	email: AbstractControl;
 	password: AbstractControl;
 	error: string;

@@ -1,74 +1,79 @@
+@import "../../theme/vars";
+
 .toolbar-background-md {
-    background-color:#000;
-    opacity:0.5;
+    background-color:#444;
+    opacity: 0.5;
 }
 
 .title-bis-details {
     color:#fff;
-    font-family: "Raleway";
+    font-family: $familyfont;
     font-size: 12px;
 }
 
 .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
     color:#fff;
-    font-family: "Raleway";
+    font-family: $familyfont;
 }
 
 .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
     color:#fff;
-    font-family: "Raleway";
+    font-family: $familyfont;
 }
 
-h2 {
+.listPlaces {
+
+    font-family: $familyfont;
+
+h2, h5 {
     font-size:18px;
     color:#4d4d4d;
     margin:20px 10px;
-    font-family: "Raleway";
 }
 
 .addressViewDetails {
-    color:#dd352e;
+    color:$alertred;
     margin:20px 10px;
     font-weight: 600;
-    font-family: "Raleway";
 }
 
 .rating {
     color:#4d4d4d;
     margin:20px 10px;
-    font-family: "Raleway";
 }
 
 .phoneNumber {
     margin:20px 10px;
-    color:#4d4d4d;
+    color:$alertred;
     font-weight:600;
-    font-family: "Raleway";
 }
 
 .schedule {
     color:#4d4d4d;
     margin:20px 10px;
-    font-family: "Raleway";
 }
 .comment {
-    margin:50px 10px;
+    margin:20px 10px;
     color:#4d4d4d;
-    font-family: "Raleway";
+    background-color: rgba(255, 255,255, 0.1);
+    padding:5px;
+    border-radius:10px;
+    box-shadow: 0px 0px 3px $graylight;
 
-    .authorName {
-        font-weight: 600;
-    }
-    .reviewRating {
-        font-weight: 600;
-    }
-    .time {
-        font-style: italic;
+        .authorName {
+            font-weight: 600;
+        }
+        .reviewRating {
+            font-weight: 600;
+        }
+        .time {
+            font-style: italic;
+        }
     }
 }
 
 .save-btn {
-    background-color:#dd352e;
+    background-color:$alertred;
     color:#fff;
     box-shadow: none;
     opacity: 1;
@@ -77,5 +82,5 @@ h2 {
     text-transform: uppercase;
     display: block;
     margin:50px auto;
-    font-family: "Raleway";
+    font-family:$familyfont;
 }

@@ -1,31 +1,33 @@
+@import "../../theme/vars";
+
 .title-header{
 	.title {
-		color:#d1d1d1;
+		color:$graylight;
 		text-align: center;
-    	font-family: "Raleway";
+    	font-family: $familyfont;
 	}
 }
 
 .home {
-	font-family: "Raleway";
+	font-family: $familyfont;
 
 	.register-btn, .login-btn {
 		transform:translateY(14em);
 	}
 
 	.login-btn {
-		background-color: #dd352e;
+		background-color:$alertred;
 
 		&:hover {
-			background:#dd352e;
+			background:$alertred;
 		}
 	}
 
 	.register-btn {
-		background-color:#d1d1d1;
+		background-color:$graylight;
 
 		&:hover {
-			background-color:#d1d1d1;
+			background-color:$graylight;
 		}
 	}
 
