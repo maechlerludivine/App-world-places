@@ -1,4 +1,4 @@
-// Model for user user crendetials
+// Model for user crendetials
 export class UserCredentials {
   email: string;
   password:string;
@@ -11,7 +11,7 @@ export class UserProfile {
     firstname: string;
 }
 
-// Model for favorites
+// Model for favorites places
 
 export class Favorites {
     name:string;

@@ -1,3 +1,5 @@
+// Model for places
+
 export interface Place {
   'address_components': Address_component[];
   'adr_address': string;
