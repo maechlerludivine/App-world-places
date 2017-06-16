@@ -6,13 +6,16 @@
   </ion-navbar>
 </ion-header>
 <ion-content class="favorites">
+
+      <input type="search" name="search" placeholder="Rechercher un lieu">
+
   	  <button class="profile-btn" block type="button" (click)="logout()"><ion-icon name="exit"></ion-icon></button>
 
 	    <button class="places-btn" block type="button" (click)="goToPlaces()"><ion-icon name="locate"></ion-icon></button>
 
-<div class="favorites-element" *ngFor="let item of myFavorites">
-		<img [src]="'https://maps.googleapis.com/maps/api/place/photo?maxwidth=500&photo_reference=' + item.photo[0].photo_reference + '&key=AIzaSyATE_DqMHFKC-u-uV1INPrEcHVW6y8k2Aw'" alt="">
-    <div class="name">{{ item.name }}</div>
-    <div class="address">{{ item.address }}</div>
-</div>
+      <div class="favorites-element" *ngFor="let item of myFavorites">
+          <img [src]="'https://maps.googleapis.com/maps/api/place/photo?maxwidth=500&photo_reference=' + item.photo[0].photo_reference + '&key=AIzaSyATE_DqMHFKC-u-uV1INPrEcHVW6y8k2Aw'" alt="">
+          <div class="name">{{ item.name }}</div>
+          <div class="address">{{ item.address }}</div>
+      </div>
 </ion-content>
